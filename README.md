@@ -1,56 +1,72 @@
-# Welcome to your Expo app 👋
+# Spark
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A delightful, touch-first learning app for children in Kindergarten through 5th grade.
 
-## Get started
+Spark helps kids explore **English, Math, and Science** through beautiful interactive experiences, guided by three lovable companions.
 
-1. Install dependencies
+## The Heroes
 
-   ```bash
-   npm install
-   ```
+- **Flint** — Energetic, bold, and full of excitement. Loves big reactions and experiments.
+- **Pebby** — Warm, gentle, and encouraging. A kind companion who collects "knowledge pebbles" with the child.
+- **Lumi** — Calm, curious, and full of wonder. Speaks in thoughtful questions and helps children slow down and observe.
 
-2. Start the app
+Each child chooses their own hero during onboarding. The chosen companion stays with them throughout their learning journey.
 
-   ```bash
-   npx expo start
-   ```
+## The Story
 
-In the output, you'll find options to open the app in a
+Behind the learning is a gentle background narrative called **The Dimming Shimmer** — a living crystal world that is slowly losing its light. The three heroes believe that when children deeply explore and understand the world around them, they create tiny "Echoes" of wonder that can help restore light to their home.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Most of the time, this story stays in the background. But attentive children will start noticing small, beautiful moments (called Echo Fragments) that hint at something bigger.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Current Features
 
-## Get a fresh project
+- **Hero Selection & Onboarding** — Children pick their companion and create a profile.
+- **Color Mixing Lab** (First Science Experiment)
+  - Real drag-and-drop interaction using Skia
+  - Prediction phase ("What do you think will happen?")
+  - Gentle story moments and reflection
+  - "I noticed something" discovery saving
 
-When you're ready, run:
+## Tech Stack
+
+- **React Native + Expo SDK 56** (with file-based routing)
+- **@shopify/react-native-skia** — High-performance 2D graphics for experiments
+- **react-native-reanimated + react-native-gesture-handler** — Smooth interactions
+- **@rive-app/react-native** — For future animated hero characters
+- **NativeWind (Tailwind)** — Styling
+- **Zustand + expo-sqlite** — State and local persistence
+- **EAS Build** — Cloud builds for iOS and Android development clients
+
+## Project Goals
+
+- Create genuinely joyful, tablet-first learning experiences
+- Use meaningful interactivity (especially in science)
+- Weave in a light, emotional background story without making it feel like a game
+- Support both iOS and Android with excellent touch and gesture support
+
+## Getting Started
 
 ```bash
-npm run reset-project
+cd spark
+npm install
+npx expo start
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+For the best experience (especially the Skia-based experiments), use a **development build** instead of Expo Go.
 
-### Other setup steps
+## Development
 
-- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
-- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
-- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
+This project uses a custom development client. See `eas.json` for build profiles.
 
-## Learn more
+```bash
+eas build --platform ios --profile development
+eas build --platform android --profile development
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## License
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Private project.
 
-## Join the community
+---
 
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Built with care for curious kids.
