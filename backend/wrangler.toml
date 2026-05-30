@@ -1,0 +1,17 @@
+name = "spark-backend"
+main = "src/index.ts"
+compatibility_date = "2025-04-01"
+
+# D1 Database (for child profiles, progress, AI memory / Echoes)
+[[d1_databases]]
+binding = "DB"
+database_name = "spark-db"
+database_id = "REPLACE_WITH_YOUR_D1_ID"   # Set this after creating the D1 database
+
+# KV (optional, for caching, rate limiting, sessions)
+# [[kv_namespaces]]
+# binding = "KV"
+# id = "REPLACE_WITH_YOUR_KV_ID"
+
+# AI Gateway is configured via the AI Gateway dashboard / API
+# We will route all model calls through it for easy switching (gpt-4o-mini → Grok etc.)
