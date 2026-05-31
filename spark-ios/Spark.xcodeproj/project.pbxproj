@@ -1,0 +1,698 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07491DB93DEE839E5B252810 /* Experiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9429D913AC61D6B00A56B6B /* Experiment.swift */; };
+		0901B8243BA5F70B306C8E39 /* PatternGardenLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D658631C4CC1E1A661D9407B /* PatternGardenLabView.swift */; };
+		16A76C0540ABEACF9DF43EEC /* MainAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BCEFB1AB0C50BCA1B488DE /* MainAppView.swift */; };
+		19640323B6316ECA13B37516 /* ExperimentDiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E492D9D04B8C342A9A3A3E2 /* ExperimentDiscoveryView.swift */; };
+		1ECC9C6DAA18B75E10A3A0EB /* ExperimentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA25AA1EFFCFA097D00AE4 /* ExperimentDetailView.swift */; };
+		20E6F4471906BF9F4F623975 /* MirrorWorldsLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380957AC6672EB81D356F02 /* MirrorWorldsLabView.swift */; };
+		22C9DCD7D4414FF5C55EF2BB /* GrowingSecretsLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB0F3D8F96441D4F9F6C9B /* GrowingSecretsLabView.swift */; };
+		22D554457F3509754813B7E4 /* ChildProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E0A58C9766780FD3B8AA13 /* ChildProfile.swift */; };
+		328F14E63AB4151E6187B9F2 /* HeroCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500650088B591E99B705F732 /* HeroCard.swift */; };
+		5433A3A7C3D29E85F4A80A9B /* ColorMixingLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC779374157CBB44FB57DB5 /* ColorMixingLabView.swift */; };
+		5A5E79479CE65291F0229777 /* SparkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D396DF22FD04BA3BC0129C /* SparkApp.swift */; };
+		8178541B17804AE4C2FA84A7 /* SoundGardenLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFCF253301BA8FD91A9858 /* SoundGardenLabView.swift */; };
+		94D17D7CB573B924759CBAD9 /* SparkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFE535A6DFD42AFC2AE0793 /* SparkTests.swift */; };
+		991720054C4F1249EFD36679 /* AttributeDetectivesLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05682300ACAE34119E354AFC /* AttributeDetectivesLabView.swift */; };
+		9C4012CE32C11C8A7D34E9F1 /* EchoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42D79FD03BF34D9090E9BF /* EchoService.swift */; };
+		9C7449F78A5EDA419201939D /* SparkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126363FE63FF90163D4A9628 /* SparkUITests.swift */; };
+		9FA31BB8CC722B1CD80D10CA /* BalancingActLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B940EFD58A232B59202B851 /* BalancingActLabView.swift */; };
+		A02F137738FE55DFCF8B0A21 /* LearningDisposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7CF6996BBB296CADDAF588 /* LearningDisposition.swift */; };
+		A2C706DC2DC6FA14E7FC1ACA /* ExperimentCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4270409A180B49150EAFC7E /* ExperimentCard.swift */; };
+		A40F5E8079EF23E89D310BF1 /* OnboardingFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61B39D87ABC352E3F736E0 /* OnboardingFlowView.swift */; };
+		A5BDFAC6ADDD97A95F0E105C /* PouringLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785B79668FF82F83567EDF4 /* PouringLabView.swift */; };
+		AAF4A6597B9B7AECA6964DFF /* CrystalSparkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3360D05666D2280B4E04FB1 /* CrystalSparkle.swift */; };
+		B68174ED5778CF9C98893D94 /* Discovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFBAFA3B87DF36E882BFA13 /* Discovery.swift */; };
+		BB5AFD0A17185EAA6B78C662 /* ProfileDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DC298D5D1F1EF2A6072B73 /* ProfileDetailsView.swift */; };
+		BC0ABB5F1985C57E52048435 /* SparkDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254B848A5D1F7BEB9161B1C3 /* SparkDesign.swift */; };
+		BC5383FE8EEE4EB80F476240 /* HeroSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808DFAAAEC064CF4B72690BD /* HeroSelectionView.swift */; };
+		BE8E72ECF4B017283E5C0011 /* ShadowPlayLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C3486AE519A0CB0206E76 /* ShadowPlayLabView.swift */; };
+		C0224EC09ADECF0D258BD286 /* RampRunnersLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA65EC9921DEC8FAE523820 /* RampRunnersLabView.swift */; };
+		C8409C8F4A6B198CA6D35779 /* LearningProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B465F97D346072D386510B2 /* LearningProgress.swift */; };
+		E46461D7E63B87237A6E4D2F /* EchoFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4119FA6B2E24697469926E2 /* EchoFragment.swift */; };
+		F89AE407F8EF1647C67D2D38 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C953F09ADD6346496AE748 /* Hero.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		14815985FB55CDD61F7D300B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B892AFA3F6F32DFDE1F2917B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 876303B57E6FD004BCF64818;
+			remoteInfo = Spark;
+		};
+		D7A640AF312F0A05370197D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B892AFA3F6F32DFDE1F2917B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 876303B57E6FD004BCF64818;
+			remoteInfo = Spark;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05682300ACAE34119E354AFC /* AttributeDetectivesLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeDetectivesLabView.swift; sourceTree = "<group>"; };
+		0BFE535A6DFD42AFC2AE0793 /* SparkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkTests.swift; sourceTree = "<group>"; };
+		103C3486AE519A0CB0206E76 /* ShadowPlayLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayLabView.swift; sourceTree = "<group>"; };
+		126363FE63FF90163D4A9628 /* SparkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkUITests.swift; sourceTree = "<group>"; };
+		14BFFB055F5D3AFB05491CA4 /* Spark.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B940EFD58A232B59202B851 /* BalancingActLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingActLabView.swift; sourceTree = "<group>"; };
+		1E42D79FD03BF34D9090E9BF /* EchoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoService.swift; sourceTree = "<group>"; };
+		20DC298D5D1F1EF2A6072B73 /* ProfileDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsView.swift; sourceTree = "<group>"; };
+		254B848A5D1F7BEB9161B1C3 /* SparkDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkDesign.swift; sourceTree = "<group>"; };
+		2BFBAFA3B87DF36E882BFA13 /* Discovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discovery.swift; sourceTree = "<group>"; };
+		34C953F09ADD6346496AE748 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		3DA65EC9921DEC8FAE523820 /* RampRunnersLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RampRunnersLabView.swift; sourceTree = "<group>"; };
+		4E492D9D04B8C342A9A3A3E2 /* ExperimentDiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDiscoveryView.swift; sourceTree = "<group>"; };
+		500650088B591E99B705F732 /* HeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCard.swift; sourceTree = "<group>"; };
+		52AB0F3D8F96441D4F9F6C9B /* GrowingSecretsLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingSecretsLabView.swift; sourceTree = "<group>"; };
+		7531DEF5E11752F659715CE4 /* SparkUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SparkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		76E0A58C9766780FD3B8AA13 /* ChildProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildProfile.swift; sourceTree = "<group>"; };
+		7785B79668FF82F83567EDF4 /* PouringLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PouringLabView.swift; sourceTree = "<group>"; };
+		79BCEFB1AB0C50BCA1B488DE /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
+		8066DE0FCE569DFBA806F45A /* SparkTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SparkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		808DFAAAEC064CF4B72690BD /* HeroSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroSelectionView.swift; sourceTree = "<group>"; };
+		8B465F97D346072D386510B2 /* LearningProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningProgress.swift; sourceTree = "<group>"; };
+		A2D396DF22FD04BA3BC0129C /* SparkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkApp.swift; sourceTree = "<group>"; };
+		A4270409A180B49150EAFC7E /* ExperimentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentCard.swift; sourceTree = "<group>"; };
+		BC7CF6996BBB296CADDAF588 /* LearningDisposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningDisposition.swift; sourceTree = "<group>"; };
+		C9429D913AC61D6B00A56B6B /* Experiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Experiment.swift; sourceTree = "<group>"; };
+		D1FFCF253301BA8FD91A9858 /* SoundGardenLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundGardenLabView.swift; sourceTree = "<group>"; };
+		D380957AC6672EB81D356F02 /* MirrorWorldsLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorWorldsLabView.swift; sourceTree = "<group>"; };
+		D658631C4CC1E1A661D9407B /* PatternGardenLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternGardenLabView.swift; sourceTree = "<group>"; };
+		E3360D05666D2280B4E04FB1 /* CrystalSparkle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrystalSparkle.swift; sourceTree = "<group>"; };
+		E4119FA6B2E24697469926E2 /* EchoFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoFragment.swift; sourceTree = "<group>"; };
+		EBC779374157CBB44FB57DB5 /* ColorMixingLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMixingLabView.swift; sourceTree = "<group>"; };
+		F4EA25AA1EFFCFA097D00AE4 /* ExperimentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDetailView.swift; sourceTree = "<group>"; };
+		FB61B39D87ABC352E3F736E0 /* OnboardingFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		09A8D42634C2E044B7C18969 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1E42D79FD03BF34D9090E9BF /* EchoService.swift */,
+				8B465F97D346072D386510B2 /* LearningProgress.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		0F6DF9E27FAB7698AE3E0806 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				500650088B591E99B705F732 /* HeroCard.swift */,
+				808DFAAAEC064CF4B72690BD /* HeroSelectionView.swift */,
+				FB61B39D87ABC352E3F736E0 /* OnboardingFlowView.swift */,
+				20DC298D5D1F1EF2A6072B73 /* ProfileDetailsView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		195613032D04F7C348176821 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				14BFFB055F5D3AFB05491CA4 /* Spark.app */,
+				8066DE0FCE569DFBA806F45A /* SparkTests.xctest */,
+				7531DEF5E11752F659715CE4 /* SparkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3389F4D949ECD1C4C7A3FC0B = {
+			isa = PBXGroup;
+			children = (
+				36464A09E294FF26F5D3E5D0 /* Sources */,
+				675B56332E65ED375F3CF6D7 /* SparkTests */,
+				88D16EBC4F06533F0E61E3F3 /* SparkUITests */,
+				195613032D04F7C348176821 /* Products */,
+			);
+			indentWidth = 4;
+			sourceTree = "<group>";
+			tabWidth = 4;
+		};
+		36464A09E294FF26F5D3E5D0 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				B580F56B2E09B7B84FF20FD2 /* App */,
+				E818D38E4ED262E002CFC636 /* Core */,
+				7CBE73556F487DCCDEC5D628 /* DesignSystem */,
+				923B171DDC3E05B39F993E06 /* Features */,
+			);
+			name = Sources;
+			path = Spark/Sources;
+			sourceTree = "<group>";
+		};
+		675B56332E65ED375F3CF6D7 /* SparkTests */ = {
+			isa = PBXGroup;
+			children = (
+				0BFE535A6DFD42AFC2AE0793 /* SparkTests.swift */,
+			);
+			path = SparkTests;
+			sourceTree = "<group>";
+		};
+		7CBE73556F487DCCDEC5D628 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				E3360D05666D2280B4E04FB1 /* CrystalSparkle.swift */,
+				254B848A5D1F7BEB9161B1C3 /* SparkDesign.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		88D16EBC4F06533F0E61E3F3 /* SparkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				126363FE63FF90163D4A9628 /* SparkUITests.swift */,
+			);
+			path = SparkUITests;
+			sourceTree = "<group>";
+		};
+		923B171DDC3E05B39F993E06 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				E953A1D624E4505883B0696B /* Experiments */,
+				0F6DF9E27FAB7698AE3E0806 /* Onboarding */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B580F56B2E09B7B84FF20FD2 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				79BCEFB1AB0C50BCA1B488DE /* MainAppView.swift */,
+				A2D396DF22FD04BA3BC0129C /* SparkApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E267D801E96F950379EFBD72 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				76E0A58C9766780FD3B8AA13 /* ChildProfile.swift */,
+				2BFBAFA3B87DF36E882BFA13 /* Discovery.swift */,
+				E4119FA6B2E24697469926E2 /* EchoFragment.swift */,
+				C9429D913AC61D6B00A56B6B /* Experiment.swift */,
+				34C953F09ADD6346496AE748 /* Hero.swift */,
+				BC7CF6996BBB296CADDAF588 /* LearningDisposition.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E818D38E4ED262E002CFC636 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E267D801E96F950379EFBD72 /* Models */,
+				09A8D42634C2E044B7C18969 /* Services */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		E953A1D624E4505883B0696B /* Experiments */ = {
+			isa = PBXGroup;
+			children = (
+				05682300ACAE34119E354AFC /* AttributeDetectivesLabView.swift */,
+				1B940EFD58A232B59202B851 /* BalancingActLabView.swift */,
+				EBC779374157CBB44FB57DB5 /* ColorMixingLabView.swift */,
+				A4270409A180B49150EAFC7E /* ExperimentCard.swift */,
+				F4EA25AA1EFFCFA097D00AE4 /* ExperimentDetailView.swift */,
+				4E492D9D04B8C342A9A3A3E2 /* ExperimentDiscoveryView.swift */,
+				52AB0F3D8F96441D4F9F6C9B /* GrowingSecretsLabView.swift */,
+				D380957AC6672EB81D356F02 /* MirrorWorldsLabView.swift */,
+				D658631C4CC1E1A661D9407B /* PatternGardenLabView.swift */,
+				7785B79668FF82F83567EDF4 /* PouringLabView.swift */,
+				3DA65EC9921DEC8FAE523820 /* RampRunnersLabView.swift */,
+				103C3486AE519A0CB0206E76 /* ShadowPlayLabView.swift */,
+				D1FFCF253301BA8FD91A9858 /* SoundGardenLabView.swift */,
+			);
+			path = Experiments;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6DCB7D5BCB215413B6058CD8 /* SparkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F450E97A1AFDBE38F05AF8F3 /* Build configuration list for PBXNativeTarget "SparkTests" */;
+			buildPhases = (
+				DA90D9AE5477805005BE5565 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				31BFE0222D3FFC92EA09B82F /* PBXTargetDependency */,
+			);
+			name = SparkTests;
+			packageProductDependencies = (
+			);
+			productName = SparkTests;
+			productReference = 8066DE0FCE569DFBA806F45A /* SparkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		876303B57E6FD004BCF64818 /* Spark */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFD23EDBCF774EB77CF7AB33 /* Build configuration list for PBXNativeTarget "Spark" */;
+			buildPhases = (
+				35CFAA8ABEFC095E746ED425 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Spark;
+			packageProductDependencies = (
+			);
+			productName = Spark;
+			productReference = 14BFFB055F5D3AFB05491CA4 /* Spark.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BCBDA426CF600E98E32BE0A2 /* SparkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1117A665957EA6990EDF11B /* Build configuration list for PBXNativeTarget "SparkUITests" */;
+			buildPhases = (
+				14090DB32974D50CA1D2B4EF /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7ACA336CA9FCBC1F88FB9F64 /* PBXTargetDependency */,
+			);
+			name = SparkUITests;
+			packageProductDependencies = (
+			);
+			productName = SparkUITests;
+			productReference = 7531DEF5E11752F659715CE4 /* SparkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B892AFA3F6F32DFDE1F2917B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					6DCB7D5BCB215413B6058CD8 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					876303B57E6FD004BCF64818 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					BCBDA426CF600E98E32BE0A2 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+						TestTargetID = 876303B57E6FD004BCF64818;
+					};
+				};
+			};
+			buildConfigurationList = E6A1C9A3FBFB440D626CE921 /* Build configuration list for PBXProject "Spark" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 3389F4D949ECD1C4C7A3FC0B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 195613032D04F7C348176821 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				876303B57E6FD004BCF64818 /* Spark */,
+				6DCB7D5BCB215413B6058CD8 /* SparkTests */,
+				BCBDA426CF600E98E32BE0A2 /* SparkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		14090DB32974D50CA1D2B4EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C7449F78A5EDA419201939D /* SparkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35CFAA8ABEFC095E746ED425 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				991720054C4F1249EFD36679 /* AttributeDetectivesLabView.swift in Sources */,
+				9FA31BB8CC722B1CD80D10CA /* BalancingActLabView.swift in Sources */,
+				22D554457F3509754813B7E4 /* ChildProfile.swift in Sources */,
+				5433A3A7C3D29E85F4A80A9B /* ColorMixingLabView.swift in Sources */,
+				AAF4A6597B9B7AECA6964DFF /* CrystalSparkle.swift in Sources */,
+				B68174ED5778CF9C98893D94 /* Discovery.swift in Sources */,
+				E46461D7E63B87237A6E4D2F /* EchoFragment.swift in Sources */,
+				9C4012CE32C11C8A7D34E9F1 /* EchoService.swift in Sources */,
+				07491DB93DEE839E5B252810 /* Experiment.swift in Sources */,
+				A2C706DC2DC6FA14E7FC1ACA /* ExperimentCard.swift in Sources */,
+				1ECC9C6DAA18B75E10A3A0EB /* ExperimentDetailView.swift in Sources */,
+				19640323B6316ECA13B37516 /* ExperimentDiscoveryView.swift in Sources */,
+				22C9DCD7D4414FF5C55EF2BB /* GrowingSecretsLabView.swift in Sources */,
+				F89AE407F8EF1647C67D2D38 /* Hero.swift in Sources */,
+				328F14E63AB4151E6187B9F2 /* HeroCard.swift in Sources */,
+				BC5383FE8EEE4EB80F476240 /* HeroSelectionView.swift in Sources */,
+				A02F137738FE55DFCF8B0A21 /* LearningDisposition.swift in Sources */,
+				C8409C8F4A6B198CA6D35779 /* LearningProgress.swift in Sources */,
+				16A76C0540ABEACF9DF43EEC /* MainAppView.swift in Sources */,
+				20E6F4471906BF9F4F623975 /* MirrorWorldsLabView.swift in Sources */,
+				A40F5E8079EF23E89D310BF1 /* OnboardingFlowView.swift in Sources */,
+				0901B8243BA5F70B306C8E39 /* PatternGardenLabView.swift in Sources */,
+				A5BDFAC6ADDD97A95F0E105C /* PouringLabView.swift in Sources */,
+				BB5AFD0A17185EAA6B78C662 /* ProfileDetailsView.swift in Sources */,
+				C0224EC09ADECF0D258BD286 /* RampRunnersLabView.swift in Sources */,
+				BE8E72ECF4B017283E5C0011 /* ShadowPlayLabView.swift in Sources */,
+				8178541B17804AE4C2FA84A7 /* SoundGardenLabView.swift in Sources */,
+				5A5E79479CE65291F0229777 /* SparkApp.swift in Sources */,
+				BC0ABB5F1985C57E52048435 /* SparkDesign.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA90D9AE5477805005BE5565 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94D17D7CB573B924759CBAD9 /* SparkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		31BFE0222D3FFC92EA09B82F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 876303B57E6FD004BCF64818 /* Spark */;
+			targetProxy = 14815985FB55CDD61F7D300B /* PBXContainerItemProxy */;
+		};
+		7ACA336CA9FCBC1F88FB9F64 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 876303B57E6FD004BCF64818 /* Spark */;
+			targetProxy = D7A640AF312F0A05370197D4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1789C3A2EDB924CB1DFBDCF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arhaventures.SparkUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Spark;
+			};
+			name = Debug;
+		};
+		33114364F6CE0401B88E8F82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Spark/Resources/Info.plist;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arhaventures.spark;
+				PRODUCT_NAME = Spark;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		91B4D72A14FC724BA3DDCA82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arhaventures.SparkTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spark.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Spark";
+			};
+			name = Release;
+		};
+		9B0818296C07F28308867C98 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_CONCURRENCY = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		D7439D609DB6A8A35AB98D0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arhaventures.SparkUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Spark;
+			};
+			name = Release;
+		};
+		F15C4DA2ACCC71D977CFBA6C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arhaventures.SparkTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Spark.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Spark";
+			};
+			name = Debug;
+		};
+		F1D74EE6885B094423B6C861 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_CONCURRENCY = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		FFF81DE56A1C2039DCE38693 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Spark/Resources/Info.plist;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.arhaventures.spark;
+				PRODUCT_NAME = Spark;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B1117A665957EA6990EDF11B /* Build configuration list for PBXNativeTarget "SparkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1789C3A2EDB924CB1DFBDCF8 /* Debug */,
+				D7439D609DB6A8A35AB98D0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFD23EDBCF774EB77CF7AB33 /* Build configuration list for PBXNativeTarget "Spark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				33114364F6CE0401B88E8F82 /* Debug */,
+				FFF81DE56A1C2039DCE38693 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6A1C9A3FBFB440D626CE921 /* Build configuration list for PBXProject "Spark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1D74EE6885B094423B6C861 /* Debug */,
+				9B0818296C07F28308867C98 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F450E97A1AFDBE38F05AF8F3 /* Build configuration list for PBXNativeTarget "SparkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F15C4DA2ACCC71D977CFBA6C /* Debug */,
+				91B4D72A14FC724BA3DDCA82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B892AFA3F6F32DFDE1F2917B /* Project object */;
+}

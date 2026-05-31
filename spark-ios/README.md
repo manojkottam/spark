@@ -8,7 +8,7 @@ After exploring a React Native + Expo approach, we decided to go fully native fo
 
 ## Current Status
 
-Early scaffolding phase. We are preserving the product thinking from the previous prototype while rebuilding the experience natively.
+Early scaffolding phase. Xcode project created with XcodeGen. Core models (Hero, EchoFragment, etc.) are defined. UI work has not yet begun.
 
 ## Key Product Pillars
 
@@ -20,9 +20,30 @@ Early scaffolding phase. We are preserving the product thinking from the previou
 
 ## Getting Started (on Mac)
 
-1. Open the project in Xcode (once the .xcodeproj is created)
-2. Select your development team for signing
-3. Run on iPad or simulator
+The Xcode project is generated with [XcodeGen](https://github.com/yonaskolb/XcodeGen).
+
+### One-time setup
+
+```bash
+# If you don't have XcodeGen installed:
+brew install xcodegen
+```
+
+### Daily development
+
+```bash
+# Regenerate the project after changing xcodegen.yml
+xcodegen generate
+
+# Then open in Xcode
+open Spark.xcodeproj
+```
+
+1. Open `Spark.xcodeproj` in Xcode
+2. Select your development team in the **Spark** target (Signing & Capabilities tab)
+3. Choose an iPad or iPhone simulator and run
+
+> **Note**: The project targets **iOS 17.0+** and supports both iPhone and iPad.
 
 ## Architecture
 

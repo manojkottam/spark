@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 
 /// Represents one of the three companion heroes in Spark.
-struct Hero: Identifiable, Hashable {
+struct Hero: Identifiable {
     let id: HeroID
     let name: String
     let emoji: String
@@ -12,6 +12,17 @@ struct Hero: Identifiable, Hashable {
     
     /// The hero's role in the background story "The Dimming Shimmer"
     let storyRole: String
+}
+
+// Hashable/Equatable based on ID only (primaryColor and Personality are presentation data)
+extension Hero: Hashable {
+    static func == (lhs: Hero, rhs: Hero) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 enum HeroID: String, CaseIterable, Codable {
@@ -68,7 +79,29 @@ extension Hero {
     }
 }
 
-struct Personality {
+// MARK: - UI Presentation (Hero Selection)
+extension Hero {
+    /// Short evocative line shown on the card.
+    var tagline: String {
+        switch id {
+        case .flint: "The spark that refuses to go out."
+        case .pebby: "The keeper of stories and memory."
+        case .lumi:  "The one who can hear The Shimmer."
+        }
+    }
+    
+    /// Gentle future hook that appears when this hero is selected.
+    /// Designed to create intrigue for both kids and parents.
+    var selectionHook: String {
+        switch id {
+        case .flint: "He’s been searching for someone brave enough to help reignite the light."
+        case .pebby: "She believes the right friend can help remember what was lost."
+        case .lumi:  "She sensed a bright Spark from far away… and came looking for you."
+        }
+    }
+}
+
+struct Personality: Hashable, Equatable {
     let tone: String
     let encouragementStyle: String
     let correctionStyle: String
