@@ -1,5 +1,7 @@
 # Handoff: Freemium Model + Journey Map (June 2026)
 
+> **Note for the receiving agent**: The user has reviewed the current build on a real iPad and is not satisfied with the visual design and overall appeal. They have decided to continue development with another agent. This handoff focuses on preserving the strong functional and story direction while clearly documenting the visual gaps.
+
 ## Summary of What Was Built
 
 We implemented a **simple one-time purchase freemium model** for Spark:
@@ -16,6 +18,64 @@ This replaced earlier ideas of per-track purchases or subscriptions.
 - Light branching (`isExperimentUnlocked`) is kept only as **guidance/recommendation** inside owned content. The hard gate is `canAccess()`.
 - Tone: Magical and non-pushy. The unlock sheet and map messaging stay in the story voice.
 - Real-device contrast fixes were applied after iPad testing (the original very light "paper" aesthetic washed out on hardware).
+
+---
+
+## Visual Design & Polish Status (High Priority Open Item)
+
+**Important note for the next agent:** The functional architecture, story systems, and freemium model are in good shape. However, the **current visuals are not appealing** on real hardware (especially iPad). The user did a full visual inspection on device and explicitly stated that the visuals are not working.
+
+### Current Problems (as reported on real iPad)
+- The app feels very "light" and washed out from the first screen.
+- `sparkBackground` (very pale warm off-white) + heavy use of `Color.white` (or semi-transparent white) cards creates extremely low contrast.
+- Text (especially secondary text and labels) becomes hard to read.
+- Cards and sections blend into the background rather than feeling like distinct, delightful elements.
+- The overall aesthetic does not yet feel magical, premium, or particularly appealing to K-5 kids and their parents.
+- The app currently feels like a blown-up iPhone experience on iPad rather than a well-designed tablet experience.
+
+### What Was Attempted in This Session
+- Slightly darkened `sparkBackground` (from ~0.97 to 0.95 lightness).
+- Added subtle black borders (`opacity 0.05–0.06`) to most white cards and sections for better separation.
+- Increased opacity on some semi-transparent cards (e.g. in JourneyMapView).
+- Strengthened shadows on key elements like the hero dialogue bubble.
+
+These were quick code-level contrast fixes. They helped somewhat but did **not** solve the fundamental visual appeal issue.
+
+### Recommended Approach for the Next Agent
+This work needs proper **design direction** rather than more incremental code tweaks. Suggested priorities:
+
+1. **Establish a stronger visual foundation**
+   - Create a proper design system with more intentional color palette (deeper backgrounds, richer accents, better use of the three hero colors).
+   - Define clear card/component hierarchy with stronger elevation, borders, or textures.
+   - Review typography scale and weight usage for better readability on device.
+
+2. **Re-think the core aesthetic**
+   - The current "warm paper" look is too subtle and flat on real screens.
+   - Consider richer crystal/shimmer materials, more deliberate use of hero-colored tints, or a slightly deeper base background.
+   - The Journey Map in particular needs to feel like an exciting world to explore, not a flat list of paths.
+
+3. **iPad-specific design**
+   - The app currently does not take advantage of the larger screen.
+   - Cards feel too narrow, spacing is not optimized, and the overall experience needs breathing room and better visual rhythm on iPad.
+
+4. **Key screens that need the most attention**
+   - **Adventure Hub** (first screen users see after onboarding) — currently the most important impression.
+   - **Journey Map** — this is now the flagship navigation surface and needs to feel special.
+   - **Unlock Full Story** sheet — should feel like a delightful, high-value moment rather than a standard purchase screen.
+   - Lab cards and `ExperimentDetailView` flows.
+   - Onboarding / Hero Selection (first impression).
+   - `ClimaxView` and Major Echo celebration moments (these should feel magical).
+   - Animated hero presence and particle effects (shimmer intensity, sparkle behavior).
+
+5. **Technical recommendations**
+   - Consider introducing more sophisticated shadow/elevation system or subtle textures.
+   - Review all places using `Color.white` or high opacity white — these are the main culprits of the washed-out feel.
+   - Test extensively on real iPad hardware (not just simulator), in different lighting conditions.
+   - Consider adding a few high-quality custom illustrations or icon treatments for the crystal world theme.
+
+The direction (story-first, emotional ending, living heroes, meaningful progression via the map) is solid and worth preserving. The visuals just need a dedicated design pass to match that ambition.
+
+---
 
 ## Data Model Changes
 
