@@ -263,6 +263,11 @@ struct ColorMixingLabView: View {
     private var reflectionView: some View {
         Button {
             let dispositions: [LearningDisposition] = [.observation, .prediction, .iteration]
+            
+            // NOTE FOR MAJOR STORY ECHO SCAFFOLDING (Final Echo Moments):
+            // When this (or any) lab detects a truly special run, compute MajorEchoContext
+            // and let the parent call EchoService.majorEchoForCompletion.
+            // See FINAL_ECHO_MOMENTS.md + the block in ExperimentDetailView.
             onComplete(currentMix?.name ?? "Something beautiful", dispositions, discoveredEcho)
         } label: {
             Text("I noticed something special")

@@ -8,6 +8,8 @@ struct SoundGardenLabView: View {
     @State private var hasPredicted = false
     @State private var prediction: String = ""
     @State private var discoveredEcho: EchoFragment?
+    @State private var discoveredMajorEcho: EchoFragment?   // Major story echo (Final Echo Moment)
+    @State private var showMajorEchoMoment = false          // Cinematic full-screen takeover
     @State private var showReflection = false
     
     private var hero: Hero {
@@ -60,6 +62,10 @@ struct SoundGardenLabView: View {
                 echoFragmentCard(echo)
             }
             
+            if let major = discoveredMajorEcho {
+                majorEchoFragmentCard(major)
+            }
+            
             if showReflection {
                 reflectionView
             } else if selectedMaterials.count >= 3 {
@@ -79,6 +85,14 @@ struct SoundGardenLabView: View {
             Spacer()
         }
         .padding(.horizontal, 20)
+        .fullScreenCover(isPresented: $showMajorEchoMoment) {
+            if let major = discoveredMajorEcho {
+                MajorEchoMomentView(echo: major, hero: hero) {
+                    showMajorEchoMoment = false
+                    // After the cinematic moment, we leave a quiet trace so the child still sees what they created
+                }
+            }
+        }
     }
     
     private var heroCompanionView: some View {
@@ -167,9 +181,57 @@ struct SoundGardenLabView: View {
         )
     }
     
+    // MARK: - Major Story Echo Card (Final Echo Moments)
+    // These feel bigger and more cinematic — the ones that directly power the ending.
+    private func majorEchoFragmentCard(_ echo: EchoFragment) -> some View {
+        VStack(spacing: 10) {
+            HStack(spacing: 6) {
+                Text("🌌")
+                Text("The Shimmer remembers this deeply")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(hero.primaryColor)
+            }
+            
+            Text(echo.title)
+                .font(.title3.weight(.bold))
+            
+            Text(EchoService.reactionForMajorEcho(echo, heroID: hero.id))
+                .font(.callout)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+            
+            Text("A Final Echo Moment")
+                .font(.caption2.weight(.medium))
+                .foregroundStyle(hero.primaryColor.opacity(0.7))
+                .padding(.top, 4)
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity)
+        .background(
+            LinearGradient(
+                colors: [hero.primaryColor.opacity(0.08), Color.white.opacity(0.95)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 22))
+        .overlay(
+            RoundedRectangle(cornerRadius: 22)
+                .stroke(hero.primaryColor.opacity(0.4), lineWidth: 2)
+        )
+        .shadow(color: hero.primaryColor.opacity(0.15), radius: 12, y: 6)
+    }
+    
     private var reflectionView: some View {
         Button {
             let dispositions: [LearningDisposition] = [.observation, .patterns, .prediction]
+            
+            // Safety net: also attempt major echo check on completion
+            checkForMajorHarmonyEcho()
+            if discoveredMajorEcho != nil {
+                showMajorEchoMoment = true
+            }
+            
             onComplete("Sound Orchestra", dispositions, discoveredEcho)
         } label: {
             Text("I’m ready to share what I heard")
@@ -223,6 +285,44 @@ struct SoundGardenLabView: View {
                     profile.collectedEchoIDs.append(echo.id)
                     UINotificationFeedbackGenerator().notificationOccurred(.success)
                 }
+            }
+        }
+        
+        // MAJOR STORY ECHO: The Harmony That Lit the First Crystal
+        // Requires a balanced "perfect trio" (one gentle, one ringing, one deep) + prior work in Language of Light.
+        checkForMajorHarmonyEcho()
+    }
+    
+    private func checkForMajorHarmonyEcho() {
+        guard discoveredMajorEcho == nil else { return }
+        
+        // Look for a good "orchestral" trio: one soft (Rice/Leaves), one bright (Metal), one deep (Wood/Pebbles)
+        let hasSoft = selectedMaterials.contains("Rice Shaker") || selectedMaterials.contains("Dried Leaves")
+        let hasBright = selectedMaterials.contains("Metal Lid")
+        let hasDeep = selectedMaterials.contains("Wooden Block") || selectedMaterials.contains("Pebbles")
+        let hasGoodTrio = selectedMaterials.count >= 3 && hasSoft && hasBright && hasDeep
+        
+        guard hasGoodTrio else { return }
+        
+        let context = EchoService.MajorEchoContext(
+            experimentID: "sound-garden",
+            wasPerfectSynthesis: true,
+            secondaryScore: 0.85
+        )
+        
+        if let major = EchoService.majorEchoForCompletion(context: context, profile: profile),
+           !profile.collectedEchoIDs.contains(major.id) {
+            
+            withAnimation(.spring(response: 0.6, dampingFraction: 0.75)) {
+                discoveredMajorEcho = major
+                showMajorEchoMoment = true   // Cinematic takeover moment
+            }
+            profile.collectedEchoIDs.append(major.id)
+            
+            // Stronger haptic for a Major Story Echo
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
             }
         }
     }

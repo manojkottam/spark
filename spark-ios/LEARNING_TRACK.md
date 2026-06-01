@@ -25,7 +25,26 @@ We track development across six core dispositions. These are the "strength areas
 
 These are **not** traditional academic skills. They are habits of mind we want to strengthen.
 
-## Content Model: Experiments (Labs)
+## Content Model: Learning Tracks & Experiments
+
+The experience is organized into **Learning Tracks** — thematic collections of experiments that tell a small story together.
+
+### LearningTrack
+- `title` and `subtitle` (poetic, child-facing)
+- `description`
+- `primaryDispositions` (what this track mainly develops)
+- `experimentIDs` (ordered list — suggests gentle progression)
+- `signatureHero` (optional — used for personalization)
+
+Current tracks include:
+- The Language of Light
+- How Things Move
+- The Music of Materials
+- Finding Patterns
+- Measuring Our World
+- Watch It Grow
+
+### Experiments (Labs)
 
 Every piece of interactive content is an `Experiment`.
 
@@ -60,36 +79,44 @@ Parents will see:
 - Recent experiments and which dispositions they exercised.
 - Gentle suggestions for experiences that would stretch growth areas.
 
-## Hero Personalization
+## Hero Personalization & Story Presence (Current Direction)
 
-Each hero has natural affinities:
-- **Flint**: Strong on Iteration + Prediction (bold experimentation)
-- **Pebby**: Strong on Observation + Connection (gentle noticing + stories)
-- **Lumi**: Strong on Observation + Patterns + Wonder (poetic attention to detail)
+The three heroes are not just guides for individual labs — they are becoming **living companions** across the entire experience.
 
-When a child has a chosen hero, that hero becomes their primary companion and subtly biases which dispositions get attention and celebration.
+- The home screen now features dynamic, context-aware greetings from the chosen hero that reference the child’s recent journey and collected Echoes.
+- Each hero has natural affinities that influence recommendations and tone:
+  - **Flint**: Strong on Iteration + Prediction (bold experimentation)
+  - **Pebby**: Strong on Observation + Connection (gentle noticing + stories)
+  - **Lumi**: Strong on Observation + Patterns + Wonder (poetic attention to detail)
+
+The gentle background story (*The Dimming Shimmer*) is intentionally being made more present on the home screen and through Echo moments, while still remaining subtle and non-intrusive for the child.
+
+The goal is for the child to feel like they have an ongoing relationship with their hero and a quiet but meaningful role in a larger story.
 
 ## Recommended Next Implementation Steps
 
 1. **Foundation** (Current)
-   - Define `LearningDisposition` and `Experiment` models ✓
-   - Light strength tracking on `ChildProfile`
+   - Define `LearningDisposition`, `Experiment`, and `LearningTrack` models ✓
+   - Light strength tracking + experiment completion on `ChildProfile` ✓
+   - Tracks visible in discovery experience + light branching (locked states) ✓
+   - Track completion rewards (special Echoes) + reward checking logic ✓
 
-2. **First Real Lab** 
-   - Build Color Mixing Lab with disposition tagging
-   - Add 1–2 light Insight Checks after the lab
+2. **Track Completion Celebration UI**
+   - When a child earns a track reward, show a nice celebration (currently only logged)
 
-3. **Recommendation Engine (MVP)**
-   - Simple scoring: recent experiments + hero affinity + grade
-   - "For you" section on the main screen
+3. **Insight Checks (Light Gate Checks)**
+   - Gentle reflection questions after labs that strengthen dispositions
+   - Hero-led "What do you think happened?" moments
 
-4. **Parent Dashboard (Phase 1)**
-   - Basic view of top dispositions
-   - Recent activity with disposition tags
+4. **Deeper Track Experiences**
+   - Multi-part experiments within a track
 
-5. **Expansion**
-   - Add 4–6 more experiments across Science and Math
-   - Introduce light branching / multiple paths within a single experiment
+5. **Parent Visibility**
+   - Show track progress and strengths side-by-side in the Insights dashboard (already started)
+
+6. **Track Completion Celebrations** (New)
+   - When a child completes enough of a track, they now receive a special visual celebration + a rare Echo Fragment reward.
+   - This gives emotional payoff and stronger narrative progression through the tracks.
 
 ## Team Direction (May 2026)
 

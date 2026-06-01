@@ -35,6 +35,12 @@ struct Experiment: Identifiable, Hashable {
     /// Optional notes on how each hero tends to approach this experiment.
     /// This helps writers and designers when creating hero-specific dialogue and prompts.
     let heroApproachNotes: [HeroID: String]?
+    
+    // MARK: - Freemium / Unlock Model (Simple "Free play then buy to unlock all")
+    
+    /// Whether this lab is available in the free tier.
+    /// When the user has not purchased the full unlock, only `isFree` labs are playable.
+    let isFree: Bool
 }
 
 /// High-level learning domains we currently support.
@@ -70,7 +76,8 @@ extension Experiment {
                 .flint: "Loves big, surprising reactions. Encourages bold mixing and celebrating dramatic color changes.",
                 .pebby: "Notices the quiet beauty in how colors 'meet' each other. Asks gentle questions about what the colors might be feeling.",
                 .lumi: "Draws attention to subtle shifts and the 'in-between' moments. Asks poetic questions like 'What do you think the colors are whispering?'"
-            ]
+            ],
+            isFree: true   // Free starter lab
         ),
         
         Experiment(
@@ -89,7 +96,8 @@ extension Experiment {
                 .flint: "Treats it like a daring construction challenge. Celebrates dramatic collapses as exciting experiments.",
                 .pebby: "Focuses on patience and gentle adjustments. Notices when something feels 'just right'.",
                 .lumi: "Sees beauty in symmetry and the quiet moment when everything becomes perfectly still."
-            ]
+            ],
+            isFree: false
         ),
         
         Experiment(
@@ -108,7 +116,8 @@ extension Experiment {
                 .flint: "Wants to make the biggest, scariest, or funniest shadows possible.",
                 .pebby: "Notices how shadows can look like animals or stories. Collects 'shadow friends'.",
                 .lumi: "Obsessed with the edge where light meets dark. Asks deep questions about where shadows go when the light leaves."
-            ]
+            ],
+            isFree: false
         ),
         
         // New experiments
@@ -129,7 +138,8 @@ extension Experiment {
                 .flint: "Wants to make things go as fast as possible. Loves dramatic crashes at the bottom.",
                 .pebby: "Notices which objects feel 'brave' or 'shy' on the ramp. Enjoys gentle, careful testing.",
                 .lumi: "Becomes fascinated by the moment an object is about to move. Asks 'What is the ramp whispering to the ball?'"
-            ]
+            ],
+            isFree: true   // Free starter lab
         ),
         
         Experiment(
@@ -148,7 +158,8 @@ extension Experiment {
                 .flint: "Loves making the loudest, wildest sounds. Turns it into a sound explosion experiment.",
                 .pebby: "Listens for soft, gentle sounds. Tries to make sounds that feel like a lullaby or a story.",
                 .lumi: "Hears the 'personality' in each material. Asks children to close their eyes and describe what the sound feels like inside their body."
-            ]
+            ],
+            isFree: true   // Free starter lab
         ),
         
         Experiment(
@@ -167,7 +178,8 @@ extension Experiment {
                 .flint: "Loves breaking patterns in surprising ways and then fixing them dramatically.",
                 .pebby: "Sees patterns as stories or friendships between objects. 'These two always sit together.'",
                 .lumi: "Finds poetry in growing patterns. Notices when a pattern feels 'alive' or 'breathing'."
-            ]
+            ],
+            isFree: true   // Free starter lab
         ),
         
         Experiment(
@@ -186,7 +198,8 @@ extension Experiment {
                 .flint: "Wants to make the silliest, most chaotic mirror faces and drawings possible.",
                 .pebby: "Notices when things look 'lonely' without their mirror twin. Enjoys making gentle, matching patterns.",
                 .lumi: "Becomes enchanted by the idea of a secret twin world inside the mirror. Asks deep questions about what the mirror sees."
-            ]
+            ],
+            isFree: false
         ),
         
         // Additional experiments
@@ -207,7 +220,8 @@ extension Experiment {
                 .flint: "Gets excited when things sprout quickly. Wants to try wild experiments (\"What if we sing to them?!\").",
                 .pebby: "Treats the seeds like little friends. Notices when one seed is growing faster and worries about the others.",
                 .lumi: "Talks about the seed 'dreaming' underground. Asks the child to imagine what the seed is feeling as it pushes upward."
-            ]
+            ],
+            isFree: true   // Free starter lab
         ),
         
         Experiment(
@@ -226,7 +240,8 @@ extension Experiment {
                 .flint: "Loves creating the most chaotic or surprising sorting rules possible. Enjoys when rules get broken dramatically.",
                 .pebby: "Creates gentle, story-based categories (\"These feel like friends\", \"These are the quiet ones\").",
                 .lumi: "Finds poetic or emotional attributes (\"These are the ones that look like they’re listening\"). Asks beautiful 'why' questions."
-            ]
+            ],
+            isFree: false
         ),
         
         Experiment(
@@ -245,7 +260,8 @@ extension Experiment {
                 .flint: "Wants to make big splashes and dramatic pours. Loves when the 'wrong' container actually holds more.",
                 .pebby: "Notices when water 'feels tired' of being poured. Enjoys careful, patient filling.",
                 .lumi: "Becomes fascinated by the idea that the same amount of water can look completely different. Asks philosophical questions about 'more' and 'less'."
-            ]
+            ],
+            isFree: true   // Free starter lab
         )
     ]
     

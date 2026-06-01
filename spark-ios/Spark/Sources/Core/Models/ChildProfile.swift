@@ -20,6 +20,14 @@ final class ChildProfile {
     /// Key = rawValue of LearningDisposition
     var dispositionStrengths: [String: Int] = [:]
     
+    /// IDs of experiments the child has completed (used for track progress and light branching).
+    var completedExperimentIDs: [String] = []
+    
+    // MARK: - Simple Freemium Unlock
+    /// When true, the child has purchased the full content ("buy to unlock all").
+    /// This is the single one-time unlock for the entire app.
+    var hasFullUnlock: Bool = false
+    
     init(
         id: UUID = UUID(),
         name: String,
@@ -51,6 +59,23 @@ final class ChildProfile {
             .sorted { strength(for: $0) > strength(for: $1) }
             .prefix(3)
             .map { $0 }
+    }
+    
+    // MARK: - Experiment Completion
+    
+    func markExperimentCompleted(_ experimentID: String) {
+        if !completedExperimentIDs.contains(experimentID) {
+            completedExperimentIDs.append(experimentID)
+        }
+    }
+    
+    func hasCompleted(_ experimentID: String) -> Bool {
+        completedExperimentIDs.contains(experimentID)
+    }
+    
+    /// Convenience for the simple "buy to unlock all" freemium model.
+    var hasUnlockedFullContent: Bool {
+        hasFullUnlock
     }
 }
 

@@ -6,6 +6,7 @@ struct ExperimentDetailView: View {
     
     @State private var predictionText: String = ""
     @State private var hasStartedExperiment = false
+    @State private var newlyEarnedTrackRewards: [EchoFragment] = []
     
     private var hero: Hero {
         Hero.hero(for: profile.chosenHeroID)
@@ -46,6 +47,16 @@ struct ExperimentDetailView: View {
         }
         .navigationTitle(experiment.title)
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(isPresented: Binding(
+            get: { !newlyEarnedTrackRewards.isEmpty },
+            set: { if !$0 { newlyEarnedTrackRewards = [] } }
+        )) {
+            TrackRewardCelebrationView(
+                rewards: newlyEarnedTrackRewards,
+                hero: hero,
+                onDismiss: { newlyEarnedTrackRewards = [] }
+            )
+        }
     }
     
     // MARK: - Sections
@@ -164,6 +175,65 @@ struct ExperimentDetailView: View {
         case .lumi:
             return "If you could whisper a question to this experiment, what would you ask?"
         }
+    }
+    
+    // MARK: - Completion Handler
+    
+    private func handleLabCompletion(resultName: String, dispositions: [LearningDisposition], echo: EchoFragment?) {
+        hasStartedExperiment = true
+        
+        // Record dispositions
+        for disposition in dispositions {
+            profile.recordStrength(disposition, amount: 1)
+        }
+        
+        // Mark experiment as completed (for track progress & branching)
+        profile.markExperimentCompleted(experiment.id)
+        
+        // Record regular echo if one was discovered
+        if let echo = echo, !profile.collectedEchoIDs.contains(echo.id) {
+            profile.collectedEchoIDs.append(echo.id)
+        }
+        
+        // MAJOR STORY ECHO CHECK (Final Echo Moments)
+        // ------------------------------------------------------------
+        // This is the hook for the high-stakes, story-significant echoes.
+        // Real interactive labs should compute a "MajorEchoContext" based on how
+        // special / deep the child's work was in that session, then call:
+        //
+        //   if let major = EchoService.majorEchoForCompletion(context: context, profile: profile),
+        //      !profile.collectedEchoIDs.contains(major.id) {
+        //       profile.collectedEchoIDs.append(major.id)
+        //       // surface a more dramatic "the Shimmer noticed" moment in the lab UI
+        //   }
+        //
+        // The logic lives in EchoService so new labs only need to decide
+        // "was this run special enough?" and pass the flags.
+        // See FINAL_ECHO_MOMENTS.md and EchoService.majorEchoForCompletion.
+        // ------------------------------------------------------------
+        // The real interactive labs now drive most major echoes themselves with rich context.
+        // This fallback still helps for any path that reaches here.
+        let majorContext = EchoService.MajorEchoContext(
+            experimentID: experiment.id,
+            wasPerfectSynthesis: false,
+            secondaryScore: 0.6
+        )
+        if let majorEcho = EchoService.majorEchoForCompletion(context: majorContext, profile: profile),
+           !profile.collectedEchoIDs.contains(majorEcho.id) {
+            profile.collectedEchoIDs.append(majorEcho.id)
+            print("Major story echo earned: \(majorEcho.id)")
+            // In a real lab this would trigger a special full-width celebration card + stronger haptics.
+        }
+        
+        // Check for track completion rewards
+        let progress = LearningProgress(profile: profile)
+        let newlyEarnedRewards = progress.checkForTrackCompletionRewards()
+        
+        if !newlyEarnedRewards.isEmpty {
+            newlyEarnedTrackRewards = newlyEarnedRewards
+        }
+        
+        print("Lab complete: \(experiment.id) - \(resultName)")
     }
     
     private var labPlaceholderSection: some View {

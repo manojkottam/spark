@@ -10,6 +10,8 @@ struct GrowingSecretsLabView: View {
     @State private var hasPredicted = false
     @State private var prediction: String = ""
     @State private var discoveredEcho: EchoFragment?
+    @State private var discoveredMajorEcho: EchoFragment?   // Major story echo (Final Echo Moment)
+    @State private var showMajorEchoMoment = false          // Cinematic full-screen takeover
     @State private var showReflection = false
     
     private var hero: Hero {
@@ -81,6 +83,10 @@ struct GrowingSecretsLabView: View {
                 echoFragmentCard(echo)
             }
             
+            if let major = discoveredMajorEcho {
+                majorEchoFragmentCard(major)
+            }
+            
             if showReflection {
                 reflectionView
             } else if hasPredicted {
@@ -100,6 +106,13 @@ struct GrowingSecretsLabView: View {
             Spacer()
         }
         .padding(.horizontal, 20)
+        .fullScreenCover(isPresented: $showMajorEchoMoment) {
+            if let major = discoveredMajorEcho {
+                MajorEchoMomentView(echo: major, hero: hero) {
+                    showMajorEchoMoment = false
+                }
+            }
+        }
     }
     
     private var heroCompanionView: some View {
@@ -149,6 +162,13 @@ struct GrowingSecretsLabView: View {
     private var reflectionView: some View {
         Button {
             let dispositions: [LearningDisposition] = [.observation, .prediction, .patterns]
+            
+            // MAJOR STORY ECHO: The Seed That Whispered Back
+            checkForMajorSeedWhisperEcho()
+            if discoveredMajorEcho != nil {
+                showMajorEchoMoment = true
+            }
+            
             onComplete("Plant growth experiment", dispositions, discoveredEcho)
         } label: {
             Text("I’m ready to share what I learned about growing")
@@ -158,6 +178,36 @@ struct GrowingSecretsLabView: View {
                 .background(hero.primaryColor)
                 .foregroundStyle(.white)
                 .clipShape(RoundedRectangle(cornerRadius: 20))
+        }
+    }
+    
+    private func checkForMajorSeedWhisperEcho() {
+        guard discoveredMajorEcho == nil else { return }
+        
+        let consistentCare = water > 0.6 && sunlight > 0.55 && day >= 4
+        let surprisingGrowth = growth > 0.75
+        
+        guard consistentCare && surprisingGrowth else { return }
+        
+        let context = EchoService.MajorEchoContext(
+            experimentID: "growing-secrets",
+            wasPerfectSynthesis: true,
+            secondaryScore: min(growth, 1.0)
+        )
+        
+        if let major = EchoService.majorEchoForCompletion(context: context, profile: profile),
+           !profile.collectedEchoIDs.contains(major.id) {
+            
+            withAnimation(.spring(response: 0.6, dampingFraction: 0.75)) {
+                discoveredMajorEcho = major
+                showMajorEchoMoment = true
+            }
+            profile.collectedEchoIDs.append(major.id)
+            
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+            }
         }
     }
     
@@ -183,6 +233,46 @@ struct GrowingSecretsLabView: View {
             RoundedRectangle(cornerRadius: 20)
                 .stroke(hero.primaryColor.opacity(0.25), lineWidth: 1.5)
         )
+    }
+    
+    // Major Story Echo card — The Seed That Whispered Back
+    private func majorEchoFragmentCard(_ echo: EchoFragment) -> some View {
+        VStack(spacing: 10) {
+            HStack(spacing: 6) {
+                Text("🌌")
+                Text("The Shimmer remembers this deeply")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(hero.primaryColor)
+            }
+            
+            Text(echo.title)
+                .font(.title3.weight(.bold))
+            
+            Text(EchoService.reactionForMajorEcho(echo, heroID: hero.id))
+                .font(.callout)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+            
+            Text("A Final Echo Moment")
+                .font(.caption2.weight(.medium))
+                .foregroundStyle(hero.primaryColor.opacity(0.7))
+                .padding(.top, 4)
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity)
+        .background(
+            LinearGradient(
+                colors: [hero.primaryColor.opacity(0.08), Color.white.opacity(0.95)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 22))
+        .overlay(
+            RoundedRectangle(cornerRadius: 22)
+                .stroke(hero.primaryColor.opacity(0.4), lineWidth: 2)
+        )
+        .shadow(color: hero.primaryColor.opacity(0.15), radius: 12, y: 6)
     }
     
     private func makePrediction(_ choice: String) {

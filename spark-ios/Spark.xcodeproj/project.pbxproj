@@ -10,16 +10,24 @@
 		07491DB93DEE839E5B252810 /* Experiment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9429D913AC61D6B00A56B6B /* Experiment.swift */; };
 		0901B8243BA5F70B306C8E39 /* PatternGardenLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D658631C4CC1E1A661D9407B /* PatternGardenLabView.swift */; };
 		16A76C0540ABEACF9DF43EEC /* MainAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79BCEFB1AB0C50BCA1B488DE /* MainAppView.swift */; };
+		16CE060D748631BE54859300 /* JourneyMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59E3F8DA705B8DE860586939 /* JourneyMapView.swift */; };
 		19640323B6316ECA13B37516 /* ExperimentDiscoveryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E492D9D04B8C342A9A3A3E2 /* ExperimentDiscoveryView.swift */; };
 		1ECC9C6DAA18B75E10A3A0EB /* ExperimentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4EA25AA1EFFCFA097D00AE4 /* ExperimentDetailView.swift */; };
 		20E6F4471906BF9F4F623975 /* MirrorWorldsLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D380957AC6672EB81D356F02 /* MirrorWorldsLabView.swift */; };
 		22C9DCD7D4414FF5C55EF2BB /* GrowingSecretsLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AB0F3D8F96441D4F9F6C9B /* GrowingSecretsLabView.swift */; };
 		22D554457F3509754813B7E4 /* ChildProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E0A58C9766780FD3B8AA13 /* ChildProfile.swift */; };
+		3019B63F646DB7D50E784619 /* ClimaxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C52CFB41C8526E4668F26BEB /* ClimaxView.swift */; };
 		328F14E63AB4151E6187B9F2 /* HeroCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500650088B591E99B705F732 /* HeroCard.swift */; };
+		32CF9FC6CC7FC4A08A0B46EA /* TrackSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27EA7C59246F842C5CCDD50 /* TrackSection.swift */; };
+		391EA143A2B578E38C23BE8F /* MajorEchoMomentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B4C2B94AE27E47441A809CC /* MajorEchoMomentView.swift */; };
+		4CA288FABE9A1934407805CB /* LearningTrack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D296328185D2A6FE3F9BAE8C /* LearningTrack.swift */; };
 		5433A3A7C3D29E85F4A80A9B /* ColorMixingLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC779374157CBB44FB57DB5 /* ColorMixingLabView.swift */; };
 		5A5E79479CE65291F0229777 /* SparkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D396DF22FD04BA3BC0129C /* SparkApp.swift */; };
+		79188A99C2964B65A8CC53FB /* UnlockFullStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0D7807F21E4D8E7B7CAF0 /* UnlockFullStoryView.swift */; };
+		81290CCD16A9F7180B72219E /* InsightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F95A067E041786B139F6AC2B /* InsightsView.swift */; };
 		8178541B17804AE4C2FA84A7 /* SoundGardenLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FFCF253301BA8FD91A9858 /* SoundGardenLabView.swift */; };
 		94D17D7CB573B924759CBAD9 /* SparkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFE535A6DFD42AFC2AE0793 /* SparkTests.swift */; };
+		980C24EB416EC818554AED7A /* HeroDialogueSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624E85C01C0D4408C2DEE0EF /* HeroDialogueSystem.swift */; };
 		991720054C4F1249EFD36679 /* AttributeDetectivesLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05682300ACAE34119E354AFC /* AttributeDetectivesLabView.swift */; };
 		9C4012CE32C11C8A7D34E9F1 /* EchoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E42D79FD03BF34D9090E9BF /* EchoService.swift */; };
 		9C7449F78A5EDA419201939D /* SparkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126363FE63FF90163D4A9628 /* SparkUITests.swift */; };
@@ -36,7 +44,9 @@
 		BE8E72ECF4B017283E5C0011 /* ShadowPlayLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103C3486AE519A0CB0206E76 /* ShadowPlayLabView.swift */; };
 		C0224EC09ADECF0D258BD286 /* RampRunnersLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA65EC9921DEC8FAE523820 /* RampRunnersLabView.swift */; };
 		C8409C8F4A6B198CA6D35779 /* LearningProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B465F97D346072D386510B2 /* LearningProgress.swift */; };
+		C9B2CEAAFEF1FB8F6179EC70 /* AnimatedHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA272F8CFD96F18A1E80E /* AnimatedHeroView.swift */; };
 		E46461D7E63B87237A6E4D2F /* EchoFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4119FA6B2E24697469926E2 /* EchoFragment.swift */; };
+		F5FE7AD9232CF590D231766F /* TrackRewardCelebrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8287887C8A79706BD0D37C /* TrackRewardCelebrationView.swift */; };
 		F89AE407F8EF1647C67D2D38 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C953F09ADD6346496AE748 /* Hero.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +72,7 @@
 		0BFE535A6DFD42AFC2AE0793 /* SparkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkTests.swift; sourceTree = "<group>"; };
 		103C3486AE519A0CB0206E76 /* ShadowPlayLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayLabView.swift; sourceTree = "<group>"; };
 		126363FE63FF90163D4A9628 /* SparkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkUITests.swift; sourceTree = "<group>"; };
-		14BFFB055F5D3AFB05491CA4 /* Spark.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14BFFB055F5D3AFB05491CA4 /* Spark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B940EFD58A232B59202B851 /* BalancingActLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingActLabView.swift; sourceTree = "<group>"; };
 		1E42D79FD03BF34D9090E9BF /* EchoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoService.swift; sourceTree = "<group>"; };
 		20DC298D5D1F1EF2A6072B73 /* ProfileDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsView.swift; sourceTree = "<group>"; };
@@ -70,27 +80,37 @@
 		2BFBAFA3B87DF36E882BFA13 /* Discovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discovery.swift; sourceTree = "<group>"; };
 		34C953F09ADD6346496AE748 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		3DA65EC9921DEC8FAE523820 /* RampRunnersLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RampRunnersLabView.swift; sourceTree = "<group>"; };
+		4DC0D7807F21E4D8E7B7CAF0 /* UnlockFullStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockFullStoryView.swift; sourceTree = "<group>"; };
 		4E492D9D04B8C342A9A3A3E2 /* ExperimentDiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDiscoveryView.swift; sourceTree = "<group>"; };
 		500650088B591E99B705F732 /* HeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCard.swift; sourceTree = "<group>"; };
 		52AB0F3D8F96441D4F9F6C9B /* GrowingSecretsLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrowingSecretsLabView.swift; sourceTree = "<group>"; };
+		59E3F8DA705B8DE860586939 /* JourneyMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyMapView.swift; sourceTree = "<group>"; };
+		624E85C01C0D4408C2DEE0EF /* HeroDialogueSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDialogueSystem.swift; sourceTree = "<group>"; };
+		6B4C2B94AE27E47441A809CC /* MajorEchoMomentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MajorEchoMomentView.swift; sourceTree = "<group>"; };
 		7531DEF5E11752F659715CE4 /* SparkUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SparkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76E0A58C9766780FD3B8AA13 /* ChildProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildProfile.swift; sourceTree = "<group>"; };
 		7785B79668FF82F83567EDF4 /* PouringLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PouringLabView.swift; sourceTree = "<group>"; };
 		79BCEFB1AB0C50BCA1B488DE /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
-		8066DE0FCE569DFBA806F45A /* SparkTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SparkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8066DE0FCE569DFBA806F45A /* SparkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		808DFAAAEC064CF4B72690BD /* HeroSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroSelectionView.swift; sourceTree = "<group>"; };
 		8B465F97D346072D386510B2 /* LearningProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningProgress.swift; sourceTree = "<group>"; };
+		8E9EA272F8CFD96F18A1E80E /* AnimatedHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedHeroView.swift; sourceTree = "<group>"; };
+		A27EA7C59246F842C5CCDD50 /* TrackSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSection.swift; sourceTree = "<group>"; };
 		A2D396DF22FD04BA3BC0129C /* SparkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkApp.swift; sourceTree = "<group>"; };
 		A4270409A180B49150EAFC7E /* ExperimentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentCard.swift; sourceTree = "<group>"; };
 		BC7CF6996BBB296CADDAF588 /* LearningDisposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningDisposition.swift; sourceTree = "<group>"; };
+		C52CFB41C8526E4668F26BEB /* ClimaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimaxView.swift; sourceTree = "<group>"; };
 		C9429D913AC61D6B00A56B6B /* Experiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Experiment.swift; sourceTree = "<group>"; };
+		CA8287887C8A79706BD0D37C /* TrackRewardCelebrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackRewardCelebrationView.swift; sourceTree = "<group>"; };
 		D1FFCF253301BA8FD91A9858 /* SoundGardenLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundGardenLabView.swift; sourceTree = "<group>"; };
+		D296328185D2A6FE3F9BAE8C /* LearningTrack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningTrack.swift; sourceTree = "<group>"; };
 		D380957AC6672EB81D356F02 /* MirrorWorldsLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MirrorWorldsLabView.swift; sourceTree = "<group>"; };
 		D658631C4CC1E1A661D9407B /* PatternGardenLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatternGardenLabView.swift; sourceTree = "<group>"; };
 		E3360D05666D2280B4E04FB1 /* CrystalSparkle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrystalSparkle.swift; sourceTree = "<group>"; };
 		E4119FA6B2E24697469926E2 /* EchoFragment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoFragment.swift; sourceTree = "<group>"; };
 		EBC779374157CBB44FB57DB5 /* ColorMixingLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorMixingLabView.swift; sourceTree = "<group>"; };
 		F4EA25AA1EFFCFA097D00AE4 /* ExperimentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDetailView.swift; sourceTree = "<group>"; };
+		F95A067E041786B139F6AC2B /* InsightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsightsView.swift; sourceTree = "<group>"; };
 		FB61B39D87ABC352E3F736E0 /* OnboardingFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFlowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +133,14 @@
 				20DC298D5D1F1EF2A6072B73 /* ProfileDetailsView.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		12BE9939DDD54B2AE0C1755F /* Insights */ = {
+			isa = PBXGroup;
+			children = (
+				F95A067E041786B139F6AC2B /* InsightsView.swift */,
+			);
+			path = Insights;
 			sourceTree = "<group>";
 		};
 		195613032D04F7C348176821 /* Products */ = {
@@ -149,12 +177,31 @@
 			path = Spark/Sources;
 			sourceTree = "<group>";
 		};
+		4F8499A4E57928007FB465F7 /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				C52CFB41C8526E4668F26BEB /* ClimaxView.swift */,
+				59E3F8DA705B8DE860586939 /* JourneyMapView.swift */,
+				4DC0D7807F21E4D8E7B7CAF0 /* UnlockFullStoryView.swift */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
 		675B56332E65ED375F3CF6D7 /* SparkTests */ = {
 			isa = PBXGroup;
 			children = (
 				0BFE535A6DFD42AFC2AE0793 /* SparkTests.swift */,
 			);
 			path = SparkTests;
+			sourceTree = "<group>";
+		};
+		6A78E6EF96905FA15FCC82E9 /* Adventure */ = {
+			isa = PBXGroup;
+			children = (
+				8E9EA272F8CFD96F18A1E80E /* AnimatedHeroView.swift */,
+				624E85C01C0D4408C2DEE0EF /* HeroDialogueSystem.swift */,
+			);
+			path = Adventure;
 			sourceTree = "<group>";
 		};
 		7CBE73556F487DCCDEC5D628 /* DesignSystem */ = {
@@ -177,8 +224,11 @@
 		923B171DDC3E05B39F993E06 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				6A78E6EF96905FA15FCC82E9 /* Adventure */,
 				E953A1D624E4505883B0696B /* Experiments */,
+				12BE9939DDD54B2AE0C1755F /* Insights */,
 				0F6DF9E27FAB7698AE3E0806 /* Onboarding */,
+				4F8499A4E57928007FB465F7 /* Story */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -201,6 +251,7 @@
 				C9429D913AC61D6B00A56B6B /* Experiment.swift */,
 				34C953F09ADD6346496AE748 /* Hero.swift */,
 				BC7CF6996BBB296CADDAF588 /* LearningDisposition.swift */,
+				D296328185D2A6FE3F9BAE8C /* LearningTrack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -224,12 +275,15 @@
 				F4EA25AA1EFFCFA097D00AE4 /* ExperimentDetailView.swift */,
 				4E492D9D04B8C342A9A3A3E2 /* ExperimentDiscoveryView.swift */,
 				52AB0F3D8F96441D4F9F6C9B /* GrowingSecretsLabView.swift */,
+				6B4C2B94AE27E47441A809CC /* MajorEchoMomentView.swift */,
 				D380957AC6672EB81D356F02 /* MirrorWorldsLabView.swift */,
 				D658631C4CC1E1A661D9407B /* PatternGardenLabView.swift */,
 				7785B79668FF82F83567EDF4 /* PouringLabView.swift */,
 				3DA65EC9921DEC8FAE523820 /* RampRunnersLabView.swift */,
 				103C3486AE519A0CB0206E76 /* ShadowPlayLabView.swift */,
 				D1FFCF253301BA8FD91A9858 /* SoundGardenLabView.swift */,
+				CA8287887C8A79706BD0D37C /* TrackRewardCelebrationView.swift */,
+				A27EA7C59246F842C5CCDD50 /* TrackSection.swift */,
 			);
 			path = Experiments;
 			sourceTree = "<group>";
@@ -300,11 +354,9 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					6DCB7D5BCB215413B6058CD8 = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					876303B57E6FD004BCF64818 = {
-						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					BCBDA426CF600E98E32BE0A2 = {
@@ -348,9 +400,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9B2CEAAFEF1FB8F6179EC70 /* AnimatedHeroView.swift in Sources */,
 				991720054C4F1249EFD36679 /* AttributeDetectivesLabView.swift in Sources */,
 				9FA31BB8CC722B1CD80D10CA /* BalancingActLabView.swift in Sources */,
 				22D554457F3509754813B7E4 /* ChildProfile.swift in Sources */,
+				3019B63F646DB7D50E784619 /* ClimaxView.swift in Sources */,
 				5433A3A7C3D29E85F4A80A9B /* ColorMixingLabView.swift in Sources */,
 				AAF4A6597B9B7AECA6964DFF /* CrystalSparkle.swift in Sources */,
 				B68174ED5778CF9C98893D94 /* Discovery.swift in Sources */,
@@ -363,10 +417,15 @@
 				22C9DCD7D4414FF5C55EF2BB /* GrowingSecretsLabView.swift in Sources */,
 				F89AE407F8EF1647C67D2D38 /* Hero.swift in Sources */,
 				328F14E63AB4151E6187B9F2 /* HeroCard.swift in Sources */,
+				980C24EB416EC818554AED7A /* HeroDialogueSystem.swift in Sources */,
 				BC5383FE8EEE4EB80F476240 /* HeroSelectionView.swift in Sources */,
+				81290CCD16A9F7180B72219E /* InsightsView.swift in Sources */,
+				16CE060D748631BE54859300 /* JourneyMapView.swift in Sources */,
 				A02F137738FE55DFCF8B0A21 /* LearningDisposition.swift in Sources */,
 				C8409C8F4A6B198CA6D35779 /* LearningProgress.swift in Sources */,
+				4CA288FABE9A1934407805CB /* LearningTrack.swift in Sources */,
 				16A76C0540ABEACF9DF43EEC /* MainAppView.swift in Sources */,
+				391EA143A2B578E38C23BE8F /* MajorEchoMomentView.swift in Sources */,
 				20E6F4471906BF9F4F623975 /* MirrorWorldsLabView.swift in Sources */,
 				A40F5E8079EF23E89D310BF1 /* OnboardingFlowView.swift in Sources */,
 				0901B8243BA5F70B306C8E39 /* PatternGardenLabView.swift in Sources */,
@@ -377,6 +436,9 @@
 				8178541B17804AE4C2FA84A7 /* SoundGardenLabView.swift in Sources */,
 				5A5E79479CE65291F0229777 /* SparkApp.swift in Sources */,
 				BC0ABB5F1985C57E52048435 /* SparkDesign.swift in Sources */,
+				F5FE7AD9232CF590D231766F /* TrackRewardCelebrationView.swift in Sources */,
+				32CF9FC6CC7FC4A08A0B46EA /* TrackSection.swift in Sources */,
+				79188A99C2964B65A8CC53FB /* UnlockFullStoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +489,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = Spark/Resources/Info.plist;
+				DEVELOPMENT_TEAM = KTK4K9ZFR8;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -446,6 +509,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = KTK4K9ZFR8;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -546,6 +610,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = KTK4K9ZFR8;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -638,7 +703,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = Spark/Resources/Info.plist;
+				DEVELOPMENT_TEAM = KTK4K9ZFR8;
+				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;

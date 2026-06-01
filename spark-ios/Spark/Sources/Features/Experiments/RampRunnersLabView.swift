@@ -10,6 +10,8 @@ struct RampRunnersLabView: View {
     @State private var hasRun = false
     @State private var distance: Double = 0
     @State private var discoveredEcho: EchoFragment?
+    @State private var discoveredMajorEcho: EchoFragment?   // Major story echo (Final Echo Moment)
+    @State private var showMajorEchoMoment = false          // Cinematic full-screen takeover
     
     private var hero: Hero {
         Hero.hero(for: profile.chosenHeroID)
@@ -35,6 +37,10 @@ struct RampRunnersLabView: View {
                 echoFragmentCard(echo)
             }
             
+            if let major = discoveredMajorEcho {
+                majorEchoFragmentCard(major)
+            }
+            
             if hasRun && discoveredEcho == nil {
                 Button {
                     completeExperiment()
@@ -53,6 +59,13 @@ struct RampRunnersLabView: View {
             Spacer()
         }
         .padding(.horizontal, 20)
+        .fullScreenCover(isPresented: $showMajorEchoMoment) {
+            if let major = discoveredMajorEcho {
+                MajorEchoMomentView(echo: major, hero: hero) {
+                    showMajorEchoMoment = false
+                }
+            }
+        }
     }
     
     private var heroCompanionView: some View {
@@ -207,6 +220,46 @@ struct RampRunnersLabView: View {
         .transition(.scale.combined(with: .opacity))
     }
     
+    // Major Story Echo card for threshold (brave + still) moments
+    private func majorEchoFragmentCard(_ echo: EchoFragment) -> some View {
+        VStack(spacing: 10) {
+            HStack(spacing: 6) {
+                Text("🌌")
+                Text("The Shimmer remembers this deeply")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(hero.primaryColor)
+            }
+            
+            Text(echo.title)
+                .font(.title3.weight(.bold))
+            
+            Text(EchoService.reactionForMajorEcho(echo, heroID: hero.id))
+                .font(.callout)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+            
+            Text("A Final Echo Moment")
+                .font(.caption2.weight(.medium))
+                .foregroundStyle(hero.primaryColor.opacity(0.7))
+                .padding(.top, 4)
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity)
+        .background(
+            LinearGradient(
+                colors: [hero.primaryColor.opacity(0.08), Color.white.opacity(0.95)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 22))
+        .overlay(
+            RoundedRectangle(cornerRadius: 22)
+                .stroke(hero.primaryColor.opacity(0.4), lineWidth: 2)
+        )
+        .shadow(color: hero.primaryColor.opacity(0.15), radius: 12, y: 6)
+    }
+    
     private func makePrediction(_ choice: String) {
         prediction = choice
         hasPredicted = true
@@ -239,10 +292,48 @@ struct RampRunnersLabView: View {
                 UINotificationFeedbackGenerator().notificationOccurred(.success)
             }
         }
+        
+        // MAJOR STORY ECHO: The Edge Where Courage Met Stillness
+        // Brave steep runs (high angle + good distance) + evidence of balancing work in journey.
+        checkForMajorThresholdEcho()
+    }
+    
+    private func checkForMajorThresholdEcho() {
+        guard discoveredMajorEcho == nil else { return }
+        
+        // "Brave" run: steep angle with solid distance
+        let isBraveRun = rampAngle > 32 && distance > 70
+        
+        guard isBraveRun else { return }
+        
+        let context = EchoService.MajorEchoContext(
+            experimentID: "ramp-runners",
+            wasPerfectSynthesis: true,
+            secondaryScore: min(distance / 110.0, 1.0)
+        )
+        
+        if let major = EchoService.majorEchoForCompletion(context: context, profile: profile),
+           !profile.collectedEchoIDs.contains(major.id) {
+            
+            withAnimation(.spring(response: 0.6, dampingFraction: 0.75)) {
+                discoveredMajorEcho = major
+                showMajorEchoMoment = true
+            }
+            profile.collectedEchoIDs.append(major.id)
+            
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+            }
+        }
     }
     
     private func completeExperiment() {
         let dispositions: [LearningDisposition] = [.prediction, .iteration, .quantitative]
+        checkForMajorThresholdEcho()
+        if discoveredMajorEcho != nil {
+            showMajorEchoMoment = true
+        }
         onComplete("Traveled \(Int(distance)) units", dispositions, discoveredEcho)
     }
 }

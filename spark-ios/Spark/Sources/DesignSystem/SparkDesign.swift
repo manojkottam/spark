@@ -3,7 +3,8 @@ import SwiftUI
 // MARK: - Colors
 extension Color {
     // Warm paper-like background used throughout the app
-    static let sparkBackground = Color(red: 0.97, green: 0.96, blue: 0.95)
+    // Slightly darkened from previous version for better contrast on real devices (especially iPad)
+    static let sparkBackground = Color(red: 0.95, green: 0.94, blue: 0.925)
     
     // Hero primary colors (matching the model)
     static let flint = Color(red: 1.0, green: 0.42, blue: 0.21)

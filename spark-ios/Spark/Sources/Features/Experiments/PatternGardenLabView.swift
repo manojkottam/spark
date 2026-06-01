@@ -8,6 +8,8 @@ struct PatternGardenLabView: View {
     @State private var hasPredicted = false
     @State private var prediction: String = ""
     @State private var discoveredEcho: EchoFragment?
+    @State private var discoveredMajorEcho: EchoFragment?   // Major story echo (Final Echo Moment)
+    @State private var showMajorEchoMoment = false          // Cinematic full-screen takeover
     @State private var showReflection = false
     
     private var hero: Hero {
@@ -88,6 +90,10 @@ struct PatternGardenLabView: View {
                 echoFragmentCard(echo)
             }
             
+            if let major = discoveredMajorEcho {
+                majorEchoFragmentCard(major)
+            }
+            
             if showReflection {
                 reflectionView
             } else if pattern.count >= 6 {
@@ -107,6 +113,13 @@ struct PatternGardenLabView: View {
             Spacer()
         }
         .padding(.horizontal, 20)
+        .fullScreenCover(isPresented: $showMajorEchoMoment) {
+            if let major = discoveredMajorEcho {
+                MajorEchoMomentView(echo: major, hero: hero) {
+                    showMajorEchoMoment = false
+                }
+            }
+        }
     }
     
     // MARK: - Subviews
@@ -199,9 +212,56 @@ struct PatternGardenLabView: View {
         )
     }
     
+    // Major Story Echo card (Final Echo Moment) — "The Pattern That Remembered Its Own Name"
+    private func majorEchoFragmentCard(_ echo: EchoFragment) -> some View {
+        VStack(spacing: 10) {
+            HStack(spacing: 6) {
+                Text("🌌")
+                Text("The Shimmer remembers this deeply")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(hero.primaryColor)
+            }
+            
+            Text(echo.title)
+                .font(.title3.weight(.bold))
+            
+            Text(EchoService.reactionForMajorEcho(echo, heroID: hero.id))
+                .font(.callout)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+            
+            Text("A Final Echo Moment")
+                .font(.caption2.weight(.medium))
+                .foregroundStyle(hero.primaryColor.opacity(0.7))
+                .padding(.top, 4)
+        }
+        .padding(20)
+        .frame(maxWidth: .infinity)
+        .background(
+            LinearGradient(
+                colors: [hero.primaryColor.opacity(0.08), Color.white.opacity(0.95)],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 22))
+        .overlay(
+            RoundedRectangle(cornerRadius: 22)
+                .stroke(hero.primaryColor.opacity(0.4), lineWidth: 2)
+        )
+        .shadow(color: hero.primaryColor.opacity(0.15), radius: 12, y: 6)
+    }
+    
     private var reflectionView: some View {
         Button {
             let dispositions: [LearningDisposition] = [.patterns, .observation, .prediction]
+            
+            // Safety net for major ancient memory echo
+            checkForMajorAncientMemoryEcho()
+            if discoveredMajorEcho != nil {
+                showMajorEchoMoment = true
+            }
+            
             onComplete("Pattern with \(pattern.count) blocks", dispositions, discoveredEcho)
         } label: {
             Text("I’m ready to share the pattern I found")
@@ -241,7 +301,6 @@ struct PatternGardenLabView: View {
         let lastThree = Array(pattern.suffix(3))
         if lastThree == Array(pattern.dropLast(3).suffix(3)) && pattern.count >= 6 {
             triggerEchoIfNotCollected("echo_patterns")
-            return
         }
         
         // Check for alternating two colors
@@ -251,6 +310,41 @@ struct PatternGardenLabView: View {
             
             if Set(even).count == 1 && Set(odd).count == 1 && even[0] != odd[0] {
                 triggerEchoIfNotCollected("echo_two_lights")
+            }
+        }
+        
+        // MAJOR STORY ECHO: The Pattern That Remembered Its Own Name (ancient_memory)
+        // Long pattern + clear repeating structure = elegant synthesis the Shimmer recognizes.
+        checkForMajorAncientMemoryEcho()
+    }
+    
+    private func checkForMajorAncientMemoryEcho() {
+        guard discoveredMajorEcho == nil, pattern.count >= 7 else { return }
+        
+        // Require some repeating structure (elegance)
+        let hasRepeatingCore = pattern.count >= 6 &&
+            Array(pattern.suffix(3)) == Array(pattern.dropLast(3).suffix(3))
+        
+        guard hasRepeatingCore else { return }
+        
+        let context = EchoService.MajorEchoContext(
+            experimentID: "pattern-garden",
+            wasPerfectSynthesis: true,
+            secondaryScore: Double(min(pattern.count, 12)) / 12.0   // longer = more special
+        )
+        
+        if let major = EchoService.majorEchoForCompletion(context: context, profile: profile),
+           !profile.collectedEchoIDs.contains(major.id) {
+            
+            withAnimation(.spring(response: 0.6, dampingFraction: 0.75)) {
+                discoveredMajorEcho = major
+                showMajorEchoMoment = true
+            }
+            profile.collectedEchoIDs.append(major.id)
+            
+            UINotificationFeedbackGenerator().notificationOccurred(.success)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+                UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
             }
         }
     }

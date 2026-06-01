@@ -40,15 +40,21 @@ struct ExperimentDiscoveryView: View {
                     .padding(.horizontal, 24)
                     .padding(.top, 12)
                     
-                    // Recommended Section
-                    if !recommended.isEmpty {
+                    // Note: Free vs Full Unlock model
+                    // Free labs (isFree == true) are always available.
+                    // Everything else requires the one-time "Unlock Full Story" purchase
+                    // (simulated via the toggle in Insights for now).
+                    
+                    // Recommended Section (only show accessible / free content unless fully unlocked)
+                    let accessibleRecommended = recommended.filter { LearningProgress(profile: profile).canAccess($0) }
+                    if !accessibleRecommended.isEmpty {
                         VStack(alignment: .leading, spacing: 14) {
                             Text("Recommended for you")
                                 .font(.sparkHeadline)
                                 .padding(.horizontal, 24)
                             
                             VStack(spacing: 14) {
-                                ForEach(recommended) { experiment in
+                                ForEach(accessibleRecommended) { experiment in
                                     NavigationLink {
                                         ExperimentDetailView(experiment: experiment, profile: profile)
                                     } label: {
@@ -65,26 +71,18 @@ struct ExperimentDiscoveryView: View {
                         }
                     }
                     
-                    // All Experiments
-                    VStack(alignment: .leading, spacing: 14) {
-                        Text("All Experiments")
+                    // Learning Tracks
+                    VStack(alignment: .leading, spacing: 16) {
+                        Text("Learning Tracks")
                             .font(.sparkHeadline)
                             .padding(.horizontal, 24)
                         
-                        VStack(spacing: 14) {
-                            ForEach(otherExperiments) { experiment in
-                                NavigationLink {
-                                    ExperimentDetailView(experiment: experiment, profile: profile)
-                                } label: {
-                                    ExperimentCard(
-                                        experiment: experiment,
-                                        hero: hero,
-                                        isRecommended: false
-                                    )
-                                }
-                                .buttonStyle(.plain)
-                                .padding(.horizontal, 20)
-                            }
+                        ForEach(LearningTrack.all) { track in
+                            TrackSection(
+                                track: track,
+                                profile: profile,
+                                hero: hero
+                            )
                         }
                     }
                     
