@@ -6,6 +6,7 @@ struct SparkApp: App {
     var body: some Scene {
         WindowGroup {
             ContentRootView()
+                .preferredColorScheme(.dark)
         }
         .modelContainer(for: ChildProfile.self)
     }

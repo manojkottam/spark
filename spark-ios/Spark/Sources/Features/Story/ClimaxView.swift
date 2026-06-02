@@ -45,7 +45,7 @@ struct ClimaxView: View {
     var body: some View {
         ZStack {
             // Dynamic background that dramatically brightens during the climax
-            Color.sparkBackground.ignoresSafeArea()
+            SparkBackground(accent: hero.primaryColor)
             
             // The Shimmer's returning light effect (will become much richer later)
             LinearGradient(
@@ -85,8 +85,7 @@ struct ClimaxView: View {
                         .frame(width: 160, height: 160)
                         .scaleEffect(heroScale)
                     
-                    Text(hero.emoji)
-                        .font(.system(size: 92))
+                    HeroCreatureView(heroID: hero.id, expression: .happy, size: 130)
                         .scaleEffect(heroScale)
                 }
                 .animation(.spring(response: 0.8, dampingFraction: 0.6), value: heroScale)

@@ -16,7 +16,7 @@ struct MajorEchoMomentView: View {
     var body: some View {
         ZStack {
             // Atmospheric background — deeper than usual, with hero-colored light returning
-            Color.sparkBackground.ignoresSafeArea()
+            SparkBackground(accent: hero.primaryColor)
             
             // Strong shimmering world light layer (feels like the Shimmer reacting)
             LinearGradient(
@@ -63,8 +63,7 @@ struct MajorEchoMomentView: View {
                         .frame(width: 170, height: 170)
                         .scaleEffect(heroScale)
                     
-                    Text(hero.emoji)
-                        .font(.system(size: 96))
+                    HeroCreatureView(heroID: hero.id, expression: .surprised, size: 132)
                         .scaleEffect(heroScale)
                 }
                 .animation(.spring(response: 1.1, dampingFraction: 0.55), value: heroScale)

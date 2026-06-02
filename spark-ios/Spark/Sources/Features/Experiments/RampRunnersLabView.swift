@@ -70,15 +70,14 @@ struct RampRunnersLabView: View {
     
     private var heroCompanionView: some View {
         HStack {
-            Text(hero.emoji)
-                .font(.title)
+            HeroCreatureView(heroID: hero.id, expression: discoveredEcho != nil ? .happy : .idle, size: 40)
             Text(heroComment)
                 .font(.callout)
                 .foregroundStyle(.secondary)
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -112,7 +111,7 @@ struct RampRunnersLabView: View {
             }
         }
         .padding()
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -148,7 +147,7 @@ struct RampRunnersLabView: View {
             }
         }
         .frame(height: 230)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 20))
     }
     
@@ -162,7 +161,7 @@ struct RampRunnersLabView: View {
                     .tint(hero.primaryColor)
             }
             .padding(16)
-            .background(Color.white)
+            .background(Color.sparkCardFill)
             .clipShape(RoundedRectangle(cornerRadius: 18))
             
             Button {
@@ -191,7 +190,7 @@ struct RampRunnersLabView: View {
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -211,7 +210,7 @@ struct RampRunnersLabView: View {
         }
         .padding(18)
         .frame(maxWidth: .infinity)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .overlay(
             RoundedRectangle(cornerRadius: 20)
@@ -247,7 +246,7 @@ struct RampRunnersLabView: View {
         .frame(maxWidth: .infinity)
         .background(
             LinearGradient(
-                colors: [hero.primaryColor.opacity(0.08), Color.white.opacity(0.95)],
+                colors: [hero.primaryColor.opacity(0.08), Color.sparkCardFill.opacity(0.95)],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
@@ -347,7 +346,7 @@ struct PredictionButtonStyle: ButtonStyle {
             .font(.callout.weight(.medium))
             .padding(.horizontal, 18)
             .padding(.vertical, 10)
-            .background(isSelected ? color : Color.white)
+            .background(isSelected ? color : Color.sparkCardFill)
             .foregroundStyle(isSelected ? .white : .primary)
             .clipShape(Capsule())
             .scaleEffect(configuration.isPressed ? 0.96 : 1.0)

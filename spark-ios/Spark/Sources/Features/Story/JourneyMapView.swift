@@ -1,51 +1,56 @@
 import SwiftUI
 
 /// Visual "map" of the journey through The Shimmer.
-/// Shows all tracks as connected paths.
+/// Shows all tracks as connected paths of glowing crystal labs.
 /// Free labs are fully accessible. Everything else requires the one-time Full Unlock.
 struct JourneyMapView: View {
     let profile: ChildProfile
-    
+
     @State private var showUnlockSheet = false
-    
+
     private var hero: Hero {
         Hero.hero(for: profile.chosenHeroID)
     }
-    
+
     private var progress: LearningProgress {
         LearningProgress(profile: profile)
     }
-    
+
+    private var worldBrightness: Double {
+        min(Double(profile.collectedEchoIDs.count) / 8.0, 1.0)
+    }
+
     var body: some View {
         ZStack {
-            Color.sparkBackground.ignoresSafeArea()
-            
+            SparkBackground(accent: hero.primaryColor, brightness: worldBrightness)
+
             ScrollView {
-                VStack(alignment: .leading, spacing: 32) {
+                VStack(alignment: .leading, spacing: 28) {
                     // Header
                     VStack(alignment: .leading, spacing: 8) {
                         Text("The Shimmer")
                             .font(.sparkTitle)
-                        
+                            .foregroundStyle(Color.sparkTextPrimary)
+
                         Text("Your journey through the crystal world")
                             .font(.sparkBody)
-                            .foregroundStyle(.secondary)
-                        
+                            .foregroundStyle(Color.sparkTextSecondary)
+
                         if !profile.hasFullUnlock {
                             Text("Free labs are open. Unlock the full story to explore every path.")
                                 .font(.callout)
-                                .foregroundStyle(hero.primaryColor.opacity(0.8))
+                                .foregroundStyle(hero.primaryColor)
                                 .padding(.top, 4)
                         }
                     }
                     .padding(.horizontal, 24)
                     .padding(.top, 12)
-                    
+
                     // Tracks as paths on the map
                     ForEach(LearningTrack.all) { track in
                         trackPathSection(track)
                     }
-                    
+
                     Spacer(minLength: 60)
                 }
             }
@@ -58,7 +63,7 @@ struct JourneyMapView: View {
             }
         }
     }
-    
+
     private func trackPathSection(_ track: LearningTrack) -> some View {
         VStack(alignment: .leading, spacing: 12) {
             // Track header
@@ -69,11 +74,11 @@ struct JourneyMapView: View {
                         .foregroundStyle(hero.primaryColor)
                     Text(track.subtitle)
                         .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Color.sparkTextSecondary)
                 }
-                
+
                 Spacer()
-                
+
                 let trackProgress = progress.progress(for: track)
                 if trackProgress > 0.05 {
                     Text("\(Int(trackProgress * 100))%")
@@ -81,8 +86,9 @@ struct JourneyMapView: View {
                         .foregroundStyle(hero.primaryColor)
                 }
             }
-            .padding(.horizontal, 24)
-            
+            .padding(.horizontal, 20)
+            .padding(.top, 4)
+
             // Horizontal path of labs
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 12) {
@@ -90,65 +96,59 @@ struct JourneyMapView: View {
                         mapNode(for: experiment, in: track)
                     }
                 }
-                .padding(.horizontal, 24)
+                .padding(.horizontal, 20)
                 .padding(.vertical, 8)
             }
         }
-        .padding(.vertical, 8)
-        // Stronger background + subtle border for better separation on bright iPad screens
-        .background(Color.white.opacity(0.85))
-        .overlay(
-            RoundedRectangle(cornerRadius: 20)
-                .stroke(Color.black.opacity(0.06), lineWidth: 1)
-        )
-        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .padding(.vertical, 10)
+        .sparkCard(cornerRadius: 20)
         .padding(.horizontal, 16)
     }
-    
+
     @ViewBuilder
     private func mapNode(for experiment: Experiment, in track: LearningTrack) -> some View {
         let hasAccess = progress.canAccess(experiment)
         let isCompleted = profile.hasCompleted(experiment.id)
-        
+
         VStack(spacing: 8) {
             ZStack {
-                // Node circle
+                // Node crystal
                 Circle()
-                    .fill(hasAccess ? hero.primaryColor.opacity(0.15) : Color.gray.opacity(0.15))
+                    .fill(hasAccess ? hero.primaryColor.opacity(0.18) : Color.white.opacity(0.05))
                     .frame(width: 68, height: 68)
                     .overlay(
                         Circle()
-                            .stroke(hasAccess ? hero.primaryColor : Color.gray.opacity(0.4), lineWidth: 2)
+                            .stroke(hasAccess ? hero.primaryColor : Color.white.opacity(0.15), lineWidth: 2)
                     )
-                
-                Text(experiment.domain.emoji)
-                    .font(.title)
-                    .opacity(hasAccess ? 1.0 : 0.5)
-                
+                    .sparkGlow(hasAccess ? hero.primaryColor : .clear, radius: 12, opacity: 0.6, y: 0)
+
+                if hasAccess {
+                    Text(experiment.domain.emoji)
+                        .font(.title)
+                } else {
+                    Image(systemName: "lock.fill")
+                        .font(.title3)
+                        .foregroundStyle(Color.white.opacity(0.4))
+                }
+
                 if isCompleted {
                     Image(systemName: "checkmark.circle.fill")
+                        .font(.body)
                         .foregroundStyle(hero.primaryColor)
-                        .background(Color.white)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.black.opacity(0.06), lineWidth: 1)
-                        )
-                        .clipShape(Circle())
-                        .font(.caption)
-                        .offset(x: 22, y: -22)
+                        .background(Circle().fill(Color.sparkTwilightBottom))
+                        .offset(x: 24, y: -24)
                 }
             }
-            .scaleEffect(hasAccess ? 1.0 : 0.9)
-            .saturation(hasAccess ? 1.0 : 0.4)
-            
+            .scaleEffect(hasAccess ? 1.0 : 0.92)
+
             // Title (short)
             Text(experiment.title)
                 .font(.caption.weight(.medium))
                 .multilineTextAlignment(.center)
                 .lineLimit(2)
                 .frame(width: 80)
-                .foregroundStyle(hasAccess ? .primary : .secondary)
-            
+                .foregroundStyle(hasAccess ? Color.sparkTextPrimary : Color.sparkTextTertiary)
+
             // Status
             if !hasAccess {
                 Button {
@@ -158,14 +158,14 @@ struct JourneyMapView: View {
                         .font(.caption2.weight(.semibold))
                         .padding(.horizontal, 8)
                         .padding(.vertical, 2)
-                        .background(hero.primaryColor.opacity(0.15))
+                        .background(hero.primaryColor.opacity(0.18))
                         .foregroundStyle(hero.primaryColor)
                         .clipShape(Capsule())
                 }
             } else if isCompleted {
                 Text("Complete")
                     .font(.caption2)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Color.sparkTextSecondary)
             } else {
                 Text("Open")
                     .font(.caption2)
@@ -173,14 +173,11 @@ struct JourneyMapView: View {
             }
         }
         .frame(width: 90)
-        .opacity(hasAccess ? 1.0 : 0.7)
         .onTapGesture {
-            if hasAccess {
-                // Navigate to the lab (we'd need a navigation path in real use)
-                // For now this is visual — tapping opens detail if we wire navigation later
-            } else {
+            if !hasAccess {
                 showUnlockSheet = true
             }
+            // Accessible nodes are visual for now; navigation can be wired later.
         }
     }
 }
@@ -191,7 +188,7 @@ struct JourneyMapView: View {
         grade: .third,
         chosenHeroID: .lumi
     )
-    
+
     NavigationStack {
         JourneyMapView(profile: profile)
     }

@@ -38,7 +38,7 @@ struct MirrorWorldsLabView: View {
                 }
                 .frame(height: 70)
                 .padding()
-                .background(Color.white)
+                .background(Color.sparkCardFill)
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 
                 Text("Mirror Side (Magic)")
@@ -53,7 +53,7 @@ struct MirrorWorldsLabView: View {
                 }
                 .frame(height: 70)
                 .padding()
-                .background(Color.white.opacity(0.8))
+                .background(Color.sparkCardFill.opacity(0.8))
                 .clipShape(RoundedRectangle(cornerRadius: 16))
                 .overlay(
                     RoundedRectangle(cornerRadius: 16)
@@ -77,7 +77,7 @@ struct MirrorWorldsLabView: View {
                 }
             }
             .padding()
-            .background(Color.white)
+            .background(Color.sparkCardFill)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             
             if leftSide.count >= 3 {
@@ -111,15 +111,14 @@ struct MirrorWorldsLabView: View {
     
     private var heroCompanionView: some View {
         HStack {
-            Text(hero.emoji)
-                .font(.title)
+            HeroCreatureView(heroID: hero.id, expression: discoveredEcho != nil ? .happy : .idle, size: 40)
             Text(heroComment)
                 .font(.callout)
                 .foregroundStyle(.secondary)
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -148,7 +147,7 @@ struct MirrorWorldsLabView: View {
             }
         }
         .padding()
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -162,7 +161,7 @@ struct MirrorWorldsLabView: View {
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -182,7 +181,7 @@ struct MirrorWorldsLabView: View {
         }
         .padding(18)
         .frame(maxWidth: .infinity)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .overlay(
             RoundedRectangle(cornerRadius: 20)

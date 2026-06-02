@@ -45,9 +45,11 @@
 		C0224EC09ADECF0D258BD286 /* RampRunnersLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DA65EC9921DEC8FAE523820 /* RampRunnersLabView.swift */; };
 		C8409C8F4A6B198CA6D35779 /* LearningProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B465F97D346072D386510B2 /* LearningProgress.swift */; };
 		C9B2CEAAFEF1FB8F6179EC70 /* AnimatedHeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9EA272F8CFD96F18A1E80E /* AnimatedHeroView.swift */; };
+		DD9D33EA8A8473B8AE3FAFDC /* HeroCreatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7956DDA9247AF79C69C7DA2 /* HeroCreatureView.swift */; };
 		E46461D7E63B87237A6E4D2F /* EchoFragment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4119FA6B2E24697469926E2 /* EchoFragment.swift */; };
 		F5FE7AD9232CF590D231766F /* TrackRewardCelebrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8287887C8A79706BD0D37C /* TrackRewardCelebrationView.swift */; };
 		F89AE407F8EF1647C67D2D38 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C953F09ADD6346496AE748 /* Hero.swift */; };
+		FEF350874E504A2F0DD4B34E /* HeroVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49D7DE1539862EA7685CC458 /* HeroVoice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +74,7 @@
 		0BFE535A6DFD42AFC2AE0793 /* SparkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkTests.swift; sourceTree = "<group>"; };
 		103C3486AE519A0CB0206E76 /* ShadowPlayLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowPlayLabView.swift; sourceTree = "<group>"; };
 		126363FE63FF90163D4A9628 /* SparkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkUITests.swift; sourceTree = "<group>"; };
-		14BFFB055F5D3AFB05491CA4 /* Spark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		14BFFB055F5D3AFB05491CA4 /* Spark.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = Spark.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B940EFD58A232B59202B851 /* BalancingActLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalancingActLabView.swift; sourceTree = "<group>"; };
 		1E42D79FD03BF34D9090E9BF /* EchoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EchoService.swift; sourceTree = "<group>"; };
 		20DC298D5D1F1EF2A6072B73 /* ProfileDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailsView.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		2BFBAFA3B87DF36E882BFA13 /* Discovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Discovery.swift; sourceTree = "<group>"; };
 		34C953F09ADD6346496AE748 /* Hero.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		3DA65EC9921DEC8FAE523820 /* RampRunnersLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RampRunnersLabView.swift; sourceTree = "<group>"; };
+		49D7DE1539862EA7685CC458 /* HeroVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroVoice.swift; sourceTree = "<group>"; };
 		4DC0D7807F21E4D8E7B7CAF0 /* UnlockFullStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnlockFullStoryView.swift; sourceTree = "<group>"; };
 		4E492D9D04B8C342A9A3A3E2 /* ExperimentDiscoveryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentDiscoveryView.swift; sourceTree = "<group>"; };
 		500650088B591E99B705F732 /* HeroCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCard.swift; sourceTree = "<group>"; };
@@ -91,13 +94,14 @@
 		76E0A58C9766780FD3B8AA13 /* ChildProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChildProfile.swift; sourceTree = "<group>"; };
 		7785B79668FF82F83567EDF4 /* PouringLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PouringLabView.swift; sourceTree = "<group>"; };
 		79BCEFB1AB0C50BCA1B488DE /* MainAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAppView.swift; sourceTree = "<group>"; };
-		8066DE0FCE569DFBA806F45A /* SparkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SparkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8066DE0FCE569DFBA806F45A /* SparkTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = SparkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		808DFAAAEC064CF4B72690BD /* HeroSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroSelectionView.swift; sourceTree = "<group>"; };
 		8B465F97D346072D386510B2 /* LearningProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningProgress.swift; sourceTree = "<group>"; };
 		8E9EA272F8CFD96F18A1E80E /* AnimatedHeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedHeroView.swift; sourceTree = "<group>"; };
 		A27EA7C59246F842C5CCDD50 /* TrackSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackSection.swift; sourceTree = "<group>"; };
 		A2D396DF22FD04BA3BC0129C /* SparkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkApp.swift; sourceTree = "<group>"; };
 		A4270409A180B49150EAFC7E /* ExperimentCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperimentCard.swift; sourceTree = "<group>"; };
+		B7956DDA9247AF79C69C7DA2 /* HeroCreatureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroCreatureView.swift; sourceTree = "<group>"; };
 		BC7CF6996BBB296CADDAF588 /* LearningDisposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningDisposition.swift; sourceTree = "<group>"; };
 		C52CFB41C8526E4668F26BEB /* ClimaxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClimaxView.swift; sourceTree = "<group>"; };
 		C9429D913AC61D6B00A56B6B /* Experiment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Experiment.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				1E42D79FD03BF34D9090E9BF /* EchoService.swift */,
+				49D7DE1539862EA7685CC458 /* HeroVoice.swift */,
 				8B465F97D346072D386510B2 /* LearningProgress.swift */,
 			);
 			path = Services;
@@ -208,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				E3360D05666D2280B4E04FB1 /* CrystalSparkle.swift */,
+				B7956DDA9247AF79C69C7DA2 /* HeroCreatureView.swift */,
 				254B848A5D1F7BEB9161B1C3 /* SparkDesign.swift */,
 			);
 			path = DesignSystem;
@@ -354,9 +360,11 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					6DCB7D5BCB215413B6058CD8 = {
+						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					876303B57E6FD004BCF64818 = {
+						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					BCBDA426CF600E98E32BE0A2 = {
@@ -417,8 +425,10 @@
 				22C9DCD7D4414FF5C55EF2BB /* GrowingSecretsLabView.swift in Sources */,
 				F89AE407F8EF1647C67D2D38 /* Hero.swift in Sources */,
 				328F14E63AB4151E6187B9F2 /* HeroCard.swift in Sources */,
+				DD9D33EA8A8473B8AE3FAFDC /* HeroCreatureView.swift in Sources */,
 				980C24EB416EC818554AED7A /* HeroDialogueSystem.swift in Sources */,
 				BC5383FE8EEE4EB80F476240 /* HeroSelectionView.swift in Sources */,
+				FEF350874E504A2F0DD4B34E /* HeroVoice.swift in Sources */,
 				81290CCD16A9F7180B72219E /* InsightsView.swift in Sources */,
 				16CE060D748631BE54859300 /* JourneyMapView.swift in Sources */,
 				A02F137738FE55DFCF8B0A21 /* LearningDisposition.swift in Sources */,
@@ -489,7 +499,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = KTK4K9ZFR8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -509,7 +518,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = KTK4K9ZFR8;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -610,7 +618,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = KTK4K9ZFR8;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -703,7 +710,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = KTK4K9ZFR8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

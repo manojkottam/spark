@@ -71,7 +71,7 @@ struct ShadowPlayLabView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-            .background(Color.white)
+            .background(Color.sparkCardFill)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             
             // Controls
@@ -92,7 +92,7 @@ struct ShadowPlayLabView: View {
                     .tint(hero.primaryColor)
             }
             .padding()
-            .background(Color.white)
+            .background(Color.sparkCardFill)
             .clipShape(RoundedRectangle(cornerRadius: 18))
             
             if let echo = discoveredEcho {
@@ -122,15 +122,14 @@ struct ShadowPlayLabView: View {
     
     private var heroCompanionView: some View {
         HStack {
-            Text(hero.emoji)
-                .font(.title)
+            HeroCreatureView(heroID: hero.id, expression: discoveredEcho != nil ? .happy : .idle, size: 40)
             Text(heroComment)
                 .font(.callout)
                 .foregroundStyle(.secondary)
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -159,7 +158,7 @@ struct ShadowPlayLabView: View {
             }
         }
         .padding()
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -194,7 +193,7 @@ struct ShadowPlayLabView: View {
         }
         .padding(18)
         .frame(maxWidth: .infinity)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .overlay(
             RoundedRectangle(cornerRadius: 20)

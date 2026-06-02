@@ -71,7 +71,7 @@ struct BalancingActLabView: View {
                 .offset(x: 80 - CGFloat((rightPosition - 2) * 20), y: -20)
             }
             .frame(height: 160)
-            .background(Color.white)
+            .background(Color.sparkCardFill)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             
             // Controls
@@ -99,7 +99,7 @@ struct BalancingActLabView: View {
                 }
             }
             .padding()
-            .background(Color.white)
+            .background(Color.sparkCardFill)
             .clipShape(RoundedRectangle(cornerRadius: 18))
             
             if let echo = discoveredEcho {
@@ -140,15 +140,14 @@ struct BalancingActLabView: View {
     
     private var heroCompanionView: some View {
         HStack {
-            Text(hero.emoji)
-                .font(.title)
+            HeroCreatureView(heroID: hero.id, expression: discoveredEcho != nil ? .happy : .idle, size: 40)
             Text(heroComment)
                 .font(.callout)
                 .foregroundStyle(.secondary)
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -177,7 +176,7 @@ struct BalancingActLabView: View {
             }
         }
         .padding()
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -216,7 +215,7 @@ struct BalancingActLabView: View {
         }
         .padding(18)
         .frame(maxWidth: .infinity)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .overlay(
             RoundedRectangle(cornerRadius: 20)
@@ -251,7 +250,7 @@ struct BalancingActLabView: View {
         .frame(maxWidth: .infinity)
         .background(
             LinearGradient(
-                colors: [hero.primaryColor.opacity(0.08), Color.white.opacity(0.95)],
+                colors: [hero.primaryColor.opacity(0.08), Color.sparkCardFill.opacity(0.95)],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )

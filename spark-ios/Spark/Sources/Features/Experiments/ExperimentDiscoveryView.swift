@@ -24,18 +24,19 @@ struct ExperimentDiscoveryView: View {
     
     var body: some View {
         ZStack {
-            Color.sparkBackground.ignoresSafeArea()
-            
+            SparkBackground(accent: hero.primaryColor)
+
             ScrollView {
                 VStack(alignment: .leading, spacing: 28) {
                     // Header
                     VStack(alignment: .leading, spacing: 8) {
                         Text("What shall we explore today?")
                             .font(.sparkTitle)
-                        
+                            .foregroundStyle(Color.sparkTextPrimary)
+
                         Text("\(hero.name) has a few ideas for you.")
                             .font(.sparkBody)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(Color.sparkTextSecondary)
                     }
                     .padding(.horizontal, 24)
                     .padding(.top, 12)
@@ -51,6 +52,7 @@ struct ExperimentDiscoveryView: View {
                         VStack(alignment: .leading, spacing: 14) {
                             Text("Recommended for you")
                                 .font(.sparkHeadline)
+                                .foregroundStyle(Color.sparkTextPrimary)
                                 .padding(.horizontal, 24)
                             
                             VStack(spacing: 14) {
@@ -75,6 +77,7 @@ struct ExperimentDiscoveryView: View {
                     VStack(alignment: .leading, spacing: 16) {
                         Text("Learning Tracks")
                             .font(.sparkHeadline)
+                            .foregroundStyle(Color.sparkTextPrimary)
                             .padding(.horizontal, 24)
                         
                         ForEach(LearningTrack.all) { track in

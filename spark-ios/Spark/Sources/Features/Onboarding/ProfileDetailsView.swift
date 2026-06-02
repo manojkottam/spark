@@ -3,57 +3,55 @@ import SwiftData
 
 struct ProfileDetailsView: View {
     let hero: Hero
-    
+
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) private var dismiss
-    
+
     @State private var childName: String = ""
     @State private var selectedGrade: Grade?
     @FocusState private var nameFieldIsFocused: Bool
-    
+
     var body: some View {
         ZStack {
-            Color.sparkBackground.ignoresSafeArea()
-            
+            SparkBackground(accent: hero.primaryColor)
+
             ScrollView {
                 VStack(spacing: 36) {
                     // Hero greeting header
                     VStack(spacing: 16) {
-                        ZStack {
-                            Circle()
-                                .fill(hero.primaryColor.opacity(0.15))
-                                .frame(width: 110, height: 110)
-                            
-                            Text(hero.emoji)
-                                .font(.system(size: 60))
-                        }
-                        
+                        HeroOrbView(heroID: hero.id, accent: hero.primaryColor, expression: .happy, size: 112)
+
                         Text("Hi! I'm \(hero.name).")
                             .font(.sparkTitle)
                             .foregroundStyle(hero.primaryColor)
-                        
+
                         Text(heroGreeting)
                             .font(.sparkBody)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(Color.sparkTextSecondary)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 32)
                     }
                     .padding(.top, 24)
-                    
+
                     // Name input
                     VStack(alignment: .leading, spacing: 12) {
                         Text("What should we call you?")
                             .font(.sparkHeadline)
-                            .foregroundStyle(.primary)
-                        
+                            .foregroundStyle(Color.sparkTextPrimary)
+
                         TextField("Your name", text: $childName)
                             .font(.system(size: 22, weight: .medium, design: .rounded))
+                            .foregroundStyle(Color.sparkTextPrimary)
+                            .tint(hero.primaryColor)
                             .padding(.vertical, 16)
                             .padding(.horizontal, 20)
                             .background(
                                 RoundedRectangle(cornerRadius: 20, style: .continuous)
-                                    .fill(Color.white)
-                                    .shadow(color: .black.opacity(0.06), radius: 8, y: 3)
+                                    .fill(Color.sparkCardFill)
+                            )
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                                    .stroke(Color.sparkCardStroke, lineWidth: 1)
                             )
                             .focused($nameFieldIsFocused)
                             .submitLabel(.next)
@@ -62,13 +60,13 @@ struct ProfileDetailsView: View {
                             }
                     }
                     .padding(.horizontal, 28)
-                    
+
                     // Grade selection
                     VStack(alignment: .leading, spacing: 14) {
                         Text("Which grade are you in?")
                             .font(.sparkHeadline)
-                            .foregroundStyle(.primary)
-                        
+                            .foregroundStyle(Color.sparkTextPrimary)
+
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 140), spacing: 12)], spacing: 12) {
                             ForEach(Grade.allCases, id: \.self) { grade in
                                 GradeChip(
@@ -79,7 +77,7 @@ struct ProfileDetailsView: View {
                                     withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
                                         selectedGrade = grade
                                     }
-                                    
+
                                     let generator = UIImpactFeedbackGenerator(style: .light)
                                     generator.impactOccurred()
                                 }
@@ -87,9 +85,9 @@ struct ProfileDetailsView: View {
                         }
                     }
                     .padding(.horizontal, 28)
-                    
+
                     Spacer(minLength: 20)
-                    
+
                     // Continue button
                     Button {
                         saveProfileAndFinish()
@@ -99,12 +97,12 @@ struct ProfileDetailsView: View {
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 18)
                             .background(
-                                canContinue ? hero.primaryColor : Color.gray.opacity(0.25)
+                                canContinue ? hero.primaryColor : Color.white.opacity(0.12)
                             )
-                            .foregroundStyle(canContinue ? .white : .secondary)
+                            .foregroundStyle(canContinue ? .white : Color.sparkTextSecondary)
                             .clipShape(RoundedRectangle(cornerRadius: .buttonCorner, style: .continuous))
                             .shadow(
-                                color: canContinue ? hero.primaryColor.opacity(0.35) : .clear,
+                                color: canContinue ? hero.primaryColor.opacity(0.4) : .clear,
                                 radius: 14,
                                 y: 6
                             )
@@ -119,41 +117,41 @@ struct ProfileDetailsView: View {
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
     }
-    
+
     // MARK: - Actions
-    
+
     private func saveProfileAndFinish() {
         guard let grade = selectedGrade else { return }
-        
+
         let trimmedName = childName.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedName.isEmpty else { return }
-        
+
         let profile = ChildProfile(
             name: trimmedName,
             grade: grade,
             chosenHeroID: hero.id
         )
-        
+
         modelContext.insert(profile)
-        
+
         // The root view (ContentRootView) will automatically switch to MainAppView
         // because of the @Query observing the model context.
     }
-    
+
     // MARK: - Computed
-    
+
     private var canContinue: Bool {
         !childName.trimmingCharacters(in: .whitespaces).isEmpty && selectedGrade != nil
     }
-    
+
     private var continueButtonTitle: String {
-        if let grade = selectedGrade {
+        if selectedGrade != nil {
             return "Let's explore with \(hero.name)!"
         } else {
             return "Let's begin"
         }
     }
-    
+
     private var heroGreeting: String {
         switch hero.id {
         case .flint:
@@ -172,7 +170,7 @@ private struct GradeChip: View {
     let isSelected: Bool
     let accentColor: Color
     let action: () -> Void
-    
+
     var body: some View {
         Button(action: action) {
             Text(grade.displayName)
@@ -180,23 +178,21 @@ private struct GradeChip: View {
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 14)
                 .background(
-                    isSelected 
-                    ? accentColor 
-                    : Color.white
+                    isSelected ? accentColor : Color.sparkCardFill
                 )
-                .foregroundStyle(isSelected ? .white : .primary)
+                .foregroundStyle(isSelected ? .white : Color.sparkTextPrimary)
                 .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                 .overlay(
                     RoundedRectangle(cornerRadius: 18, style: .continuous)
                         .strokeBorder(
-                            isSelected ? accentColor : Color.black.opacity(0.08),
+                            isSelected ? accentColor : Color.sparkCardStroke,
                             lineWidth: isSelected ? 0 : 1.5
                         )
                 )
                 .shadow(
-                    color: isSelected ? accentColor.opacity(0.25) : .black.opacity(0.04),
-                    radius: isSelected ? 10 : 4,
-                    y: isSelected ? 4 : 2
+                    color: isSelected ? accentColor.opacity(0.3) : .clear,
+                    radius: isSelected ? 10 : 0,
+                    y: isSelected ? 4 : 0
                 )
         }
         .buttonStyle(.plain)

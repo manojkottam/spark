@@ -4,15 +4,15 @@ struct TrackSection: View {
     let track: LearningTrack
     let profile: ChildProfile
     let hero: Hero
-    
+
     private var progress: Double {
         LearningProgress(profile: profile).progress(for: track)
     }
-    
+
     private var trackExperiments: [Experiment] {
         track.experiments
     }
-    
+
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             // Track Header
@@ -20,13 +20,14 @@ struct TrackSection: View {
                 VStack(alignment: .leading, spacing: 2) {
                     Text(track.title)
                         .font(.headline)
+                        .foregroundStyle(Color.sparkTextPrimary)
                     Text(track.subtitle)
                         .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(Color.sparkTextSecondary)
                 }
-                
+
                 Spacer()
-                
+
                 // Progress indicator
                 if progress > 0.05 {
                     Text("\(Int(progress * 100))%")
@@ -35,20 +36,20 @@ struct TrackSection: View {
                 }
             }
             .padding(.horizontal, 24)
-            
+
             // Track description (subtle)
             Text(track.description)
                 .font(.caption)
-                .foregroundStyle(.secondary)
+                .foregroundStyle(Color.sparkTextSecondary)
                 .lineLimit(2)
                 .padding(.horizontal, 24)
-            
+
             // Experiments in track
             VStack(spacing: 10) {
                 ForEach(trackExperiments) { experiment in
                     let progress = LearningProgress(profile: profile)
                     let hasAccess = progress.canAccess(experiment)
-                    
+
                     if hasAccess {
                         NavigationLink {
                             ExperimentDetailView(experiment: experiment, profile: profile)
@@ -69,12 +70,13 @@ struct TrackSection: View {
                         )
                         .overlay(
                             RoundedRectangle(cornerRadius: 24)
-                                .fill(Color.black.opacity(0.5))
+                                .fill(Color.sparkTwilightBottom.opacity(0.6))
                         )
                         .overlay(
                             VStack(spacing: 6) {
-                                Text("🔒")
-                                    .font(.title2)
+                                Image(systemName: "lock.fill")
+                                    .font(.title3)
+                                    .foregroundStyle(.white)
                                 Text("Unlock Full Story")
                                     .font(.caption.weight(.semibold))
                                     .foregroundStyle(.white)
@@ -84,7 +86,7 @@ struct TrackSection: View {
                             }
                             .padding(.horizontal, 12)
                             .padding(.vertical, 8)
-                            .background(Color.black.opacity(0.65))
+                            .background(Color.black.opacity(0.55))
                             .clipShape(RoundedRectangle(cornerRadius: 14))
                         )
                         .saturation(0.55)
@@ -97,9 +99,8 @@ struct TrackSection: View {
             }
             .padding(.horizontal, 20)
         }
-        .padding(.vertical, 8)
-        .background(Color.white.opacity(0.6))
-        .clipShape(RoundedRectangle(cornerRadius: 20))
+        .padding(.vertical, 12)
+        .sparkCard(cornerRadius: 20)
         .padding(.horizontal, 4)
     }
 }

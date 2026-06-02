@@ -41,7 +41,7 @@ struct PatternGardenLabView: View {
                         .foregroundStyle(.secondary)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color.white.opacity(0.6))
+                        .background(Color.sparkCardFill.opacity(0.6))
                         .clipShape(RoundedRectangle(cornerRadius: 16))
                 } else {
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -56,7 +56,7 @@ struct PatternGardenLabView: View {
                         .padding(.horizontal, 8)
                     }
                     .frame(height: 70)
-                    .background(Color.white)
+                    .background(Color.sparkCardFill)
                     .clipShape(RoundedRectangle(cornerRadius: 16))
                 }
             }
@@ -78,7 +78,7 @@ struct PatternGardenLabView: View {
                 }
             }
             .padding()
-            .background(Color.white)
+            .background(Color.sparkCardFill)
             .clipShape(RoundedRectangle(cornerRadius: 20))
             
             // Result / Insight
@@ -126,15 +126,14 @@ struct PatternGardenLabView: View {
     
     private var heroCompanionView: some View {
         HStack {
-            Text(hero.emoji)
-                .font(.title)
+            HeroCreatureView(heroID: hero.id, expression: discoveredEcho != nil ? .happy : .idle, size: 40)
             Text(heroComment)
                 .font(.callout)
                 .foregroundStyle(.secondary)
         }
         .padding()
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -169,7 +168,7 @@ struct PatternGardenLabView: View {
             }
         }
         .padding()
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -184,7 +183,7 @@ struct PatternGardenLabView: View {
         }
         .padding()
         .frame(maxWidth: .infinity)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 18))
     }
     
@@ -204,7 +203,7 @@ struct PatternGardenLabView: View {
         }
         .padding(18)
         .frame(maxWidth: .infinity)
-        .background(Color.white)
+        .background(Color.sparkCardFill)
         .clipShape(RoundedRectangle(cornerRadius: 20))
         .overlay(
             RoundedRectangle(cornerRadius: 20)
@@ -239,7 +238,7 @@ struct PatternGardenLabView: View {
         .frame(maxWidth: .infinity)
         .background(
             LinearGradient(
-                colors: [hero.primaryColor.opacity(0.08), Color.white.opacity(0.95)],
+                colors: [hero.primaryColor.opacity(0.08), Color.sparkCardFill.opacity(0.95)],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )

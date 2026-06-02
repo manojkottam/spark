@@ -7,7 +7,7 @@ struct TrackRewardCelebrationView: View {
     
     var body: some View {
         ZStack {
-            Color.sparkBackground.ignoresSafeArea()
+            SparkBackground(accent: hero.primaryColor)
             
             VStack(spacing: 32) {
                 // Header
@@ -52,7 +52,7 @@ struct TrackRewardCelebrationView: View {
                         .padding(20)
                         .background(
                             RoundedRectangle(cornerRadius: 24)
-                                .fill(Color.white)
+                                .fill(Color.sparkCardFill)
                                 .shadow(color: hero.primaryColor.opacity(0.15), radius: 12, y: 4)
                         )
                     }

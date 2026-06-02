@@ -2,37 +2,39 @@ import SwiftUI
 
 struct HeroSelectionView: View {
     @Binding var path: NavigationPath
-    
+
     @State private var selectedHero: Hero?
     @State private var cardsAppeared = false
-    
+
+    private var backgroundAccent: Color {
+        selectedHero?.primaryColor ?? .lumi
+    }
+
     var body: some View {
         ZStack {
-            Color.sparkBackground.ignoresSafeArea()
-            
+            SparkBackground(accent: backgroundAccent)
+
             ScrollView {
                 VStack(spacing: 32) {
                     // Header with subtle crystal shimmer
                     VStack(spacing: 14) {
                         ZStack {
-                            // Very subtle background crystal sparkles behind the title
                             HeaderSparkles()
-                            
+
                             Text("Who would you like\nto explore with?")
                                 .font(.sparkTitle)
                                 .multilineTextAlignment(.center)
-                                .foregroundStyle(.primary)
-                                .shadow(color: .white.opacity(0.6), radius: 0.5, y: 0.5)
+                                .foregroundStyle(Color.sparkTextPrimary)
                         }
-                        
+
                         Text("Three companions from a fading crystal world are searching for a Spark like yours.")
                             .font(.sparkBody)
-                            .foregroundStyle(.secondary)
+                            .foregroundStyle(Color.sparkTextSecondary)
                             .multilineTextAlignment(.center)
                             .padding(.horizontal, 24)
                     }
                     .padding(.top, 20)
-                    
+
                     // Three Hero Cards with staggered entrance
                     HStack(alignment: .top, spacing: 16) {
                         ForEach(Array(Hero.all.enumerated()), id: \.element.id) { index, hero in
@@ -43,8 +45,7 @@ struct HeroSelectionView: View {
                                 withAnimation(.spring(response: 0.42, dampingFraction: 0.68)) {
                                     selectedHero = hero
                                 }
-                                
-                                // Pleasant haptic on selection
+
                                 let generator = UIImpactFeedbackGenerator(style: .medium)
                                 generator.impactOccurred()
                             }
@@ -58,7 +59,7 @@ struct HeroSelectionView: View {
                         }
                     }
                     .padding(.horizontal, 16)
-                    
+
                     // Continue Button — becomes lively when a hero is chosen
                     Button {
                         guard let hero = selectedHero else { return }
@@ -66,8 +67,7 @@ struct HeroSelectionView: View {
                     } label: {
                         HStack(spacing: 8) {
                             if let hero = selectedHero {
-                                Text(hero.emoji)
-                                    .font(.title2)
+                                HeroCreatureView(heroID: hero.id, expression: .happy, size: 30)
                                     .transition(.scale.combined(with: .opacity))
                             }
                             Text(selectedHero != nil ? "Continue with \(selectedHero!.name)" : "Choose a companion")
@@ -76,14 +76,14 @@ struct HeroSelectionView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 18)
                         .background(
-                            selectedHero != nil 
-                            ? (selectedHero!.primaryColor) 
-                            : Color.gray.opacity(0.22)
+                            selectedHero != nil
+                            ? AnyShapeStyle(selectedHero!.primaryColor.sparkAccentGradient)
+                            : AnyShapeStyle(Color.white.opacity(0.12))
                         )
-                        .foregroundStyle(selectedHero != nil ? .white : .secondary)
+                        .foregroundStyle(selectedHero != nil ? .white : Color.sparkTextSecondary)
                         .clipShape(RoundedRectangle(cornerRadius: .buttonCorner, style: .continuous))
                         .shadow(
-                            color: selectedHero?.primaryColor.opacity(0.35) ?? .clear,
+                            color: selectedHero?.primaryColor.opacity(0.4) ?? .clear,
                             radius: selectedHero != nil ? 16 : 0,
                             y: selectedHero != nil ? 8 : 0
                         )
@@ -93,17 +93,16 @@ struct HeroSelectionView: View {
                     .padding(.horizontal, 32)
                     .padding(.top, 12)
                     .animation(.spring(response: 0.35, dampingFraction: 0.7), value: selectedHero?.id)
-                    
+
                     // Gentle reassurance
                     Text("You can always change your companion later.")
                         .font(.caption)
-                        .foregroundStyle(.tertiary)
+                        .foregroundStyle(Color.sparkTextTertiary)
                         .padding(.bottom, 40)
                 }
             }
         }
         .onAppear {
-            // Trigger staggered card entrance
             withAnimation {
                 cardsAppeared = true
             }
@@ -126,7 +125,7 @@ private struct HeaderSparkles: View {
             CrystalSparkle(color: Color(red: 1.0, green: 0.95, blue: 0.7), size: 3.8, delay: 0.9)
                 .offset(x: 18, y: -32)
         }
-        .opacity(0.35)
+        .opacity(0.6)
     }
 }
 

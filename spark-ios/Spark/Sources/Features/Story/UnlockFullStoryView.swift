@@ -12,7 +12,7 @@ struct UnlockFullStoryView: View {
     
     var body: some View {
         ZStack {
-            Color.sparkBackground.ignoresSafeArea()
+            SparkBackground(accent: hero.primaryColor)
             
             // Soft shimmering background (same language as climax / major moments)
             LinearGradient(
@@ -35,8 +35,7 @@ struct UnlockFullStoryView: View {
                                 .fill(hero.primaryColor.opacity(0.15))
                                 .frame(width: 120, height: 120)
                             
-                            Text(hero.emoji)
-                                .font(.system(size: 72))
+                            HeroCreatureView(heroID: hero.id, expression: .happy, size: 96)
                         }
                         
                         Text("The Full Story Awaits")
@@ -144,8 +143,7 @@ struct UnlockFullStoryView: View {
             Color.black.opacity(0.6).ignoresSafeArea()
             
             VStack(spacing: 20) {
-                Text(hero.emoji)
-                    .font(.system(size: 80))
+                HeroCreatureView(heroID: hero.id, expression: .happy, size: 110)
                 
                 Text("Thank you!")
                     .font(.sparkTitle)

@@ -4,10 +4,10 @@ struct HeroCard: View {
     let hero: Hero
     let isSelected: Bool
     let action: () -> Void
-    
+
     @State private var isPressed = false
     @State private var isBreathing = false
-    
+
     // Sparkle configuration for when selected
     private let sparklePositions: [(x: CGFloat, y: CGFloat, delay: Double, size: CGFloat)] = [
         (x: -38, y: -32, delay: 0.0, size: 4.5),
@@ -16,7 +16,7 @@ struct HeroCard: View {
         (x:  32, y:  34, delay: 0.2,  size: 3.0),
         (x:   0, y: -44, delay: 0.55, size: 3.8),
     ]
-    
+
     var body: some View {
         Button(action: action) {
             VStack(spacing: 16) {
@@ -24,23 +24,22 @@ struct HeroCard: View {
                 ZStack {
                     // Soft colored halo
                     Circle()
-                        .fill(hero.primaryColor.opacity(0.15))
+                        .fill(hero.primaryColor.opacity(0.18))
                         .frame(width: 92, height: 92)
                         .scaleEffect(isBreathing ? 1.04 : 0.96)
                         .animation(
-                            .easeInOut(duration: 2.8)
-                                .repeatForever(autoreverses: true),
+                            .easeInOut(duration: 2.8).repeatForever(autoreverses: true),
                             value: isBreathing
                         )
-                    
-                    // Shimmering outer glow when selected (crystalline light)
+
+                    // Shimmering outer glow when selected
                     if isSelected {
                         Circle()
                             .stroke(
                                 LinearGradient(
                                     colors: [
                                         hero.primaryColor.opacity(0.0),
-                                        hero.primaryColor.opacity(0.45),
+                                        hero.primaryColor.opacity(0.5),
                                         hero.primaryColor.opacity(0.0)
                                     ],
                                     startPoint: .leading,
@@ -50,20 +49,14 @@ struct HeroCard: View {
                             )
                             .frame(width: 108, height: 108)
                             .blur(radius: 6)
-                            .opacity(0.6)
-                            .scaleEffect(1.0)
-                            .animation(
-                                .easeInOut(duration: 1.8).repeatForever(autoreverses: true),
-                                value: isSelected
-                            )
+                            .opacity(0.7)
                     }
-                    
-                    // Emoji
-                    Text(hero.emoji)
-                        .font(.system(size: 52))
-                        .scaleEffect(isSelected ? 1.08 : 1.0)
+
+                    // The crystal creature
+                    HeroCreatureView(heroID: hero.id, expression: isSelected ? .happy : .idle, size: 76)
+                        .scaleEffect(isSelected ? 1.06 : 1.0)
                         .animation(.spring(response: 0.4, dampingFraction: 0.65), value: isSelected)
-                    
+
                     // Crystal sparkles around the avatar when selected
                     if isSelected {
                         ForEach(Array(sparklePositions.enumerated()), id: \.offset) { _, pos in
@@ -78,25 +71,25 @@ struct HeroCard: View {
                     }
                 }
                 .frame(width: 92, height: 92)
-                
+
                 // Name
                 Text(hero.name)
                     .font(.sparkHeadline)
                     .foregroundStyle(hero.primaryColor)
-                
+
                 // Short tagline
                 Text(hero.tagline)
                     .font(.sparkCallout)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(Color.sparkTextSecondary)
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.horizontal, 4)
-                
+
                 // Future hook — only visible when selected
                 if isSelected {
                     Text(hero.selectionHook)
                         .font(.system(size: 14, weight: .medium, design: .rounded))
-                        .foregroundStyle(hero.primaryColor.opacity(0.9))
+                        .foregroundStyle(hero.primaryColor.opacity(0.95))
                         .multilineTextAlignment(.center)
                         .padding(.top, 8)
                         .transition(.asymmetric(
@@ -110,19 +103,19 @@ struct HeroCard: View {
             .frame(maxWidth: .infinity, minHeight: 280)
             .background(
                 RoundedRectangle(cornerRadius: .cardCorner, style: .continuous)
-                    .fill(isSelected ? heroTint : Color.white)
+                    .fill(isSelected ? AnyShapeStyle(hero.primaryColor.opacity(0.16)) : AnyShapeStyle(Color.sparkCardFill))
                     .shadow(
-                        color: isSelected ? hero.primaryColor.opacity(0.22) : .black.opacity(0.06),
-                        radius: isSelected ? 24 : 8,
+                        color: isSelected ? hero.primaryColor.opacity(0.3) : .clear,
+                        radius: isSelected ? 24 : 0,
                         x: 0,
-                        y: isSelected ? 12 : 4
+                        y: isSelected ? 12 : 0
                     )
             )
             .overlay(
                 RoundedRectangle(cornerRadius: .cardCorner, style: .continuous)
                     .strokeBorder(
-                        isSelected ? hero.primaryColor : Color.black.opacity(0.06),
-                        lineWidth: isSelected ? 3.5 : 1
+                        isSelected ? hero.primaryColor : Color.sparkCardStroke,
+                        lineWidth: isSelected ? 3.0 : 1
                     )
             )
             .scaleEffect(isPressed ? 0.96 : 1.0)
@@ -135,27 +128,20 @@ struct HeroCard: View {
                 .onEnded { _ in isPressed = false }
         )
         .onAppear {
-            // Start gentle breathing animation
             withAnimation(.easeInOut(duration: 2.8).repeatForever(autoreverses: true)) {
                 isBreathing = true
             }
         }
     }
-    
-    private var heroTint: Color {
-        switch hero.id {
-        case .flint: .flintTint
-        case .pebby: .pebbyTint
-        case .lumi:  .lumiTint
-        }
-    }
 }
 
 #Preview {
-    HStack(spacing: 16) {
-        HeroCard(hero: Hero.all[0], isSelected: true) {}
-        HeroCard(hero: Hero.all[1], isSelected: false) {}
+    ZStack {
+        SparkBackground(accent: .lumi)
+        HStack(spacing: 16) {
+            HeroCard(hero: Hero.all[0], isSelected: true) {}
+            HeroCard(hero: Hero.all[1], isSelected: false) {}
+        }
+        .padding()
     }
-    .padding()
-    .background(Color.sparkBackground)
 }
